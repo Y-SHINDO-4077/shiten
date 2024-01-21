@@ -8,9 +8,9 @@
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
 	"editor.codeActionsOnSave": {
-		"source.addMissingImports": true,
-		"source.fixAll.eslint": true,
-		"source.fixAll.stylelint": true
+		"source.addMissingImports": "explicit",
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
 	},
 	"prettier.prettierPath": ".yarn/sdks/prettier/index.js",
 	"stylelint.stylelintPath": "node_modules/stylelint",

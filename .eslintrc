@@ -1,43 +1,41 @@
 {
-    "ignorePatterns": ["*.d.ts"],
-    "env": {
-        "browser": true, // ブラウザ対応
-        "es6": true, // ES2021に対応
-        "node": true // Node.js対応
-    },
-    "extends": [ // ESLintの推奨設定を使う
-        "eslint:recommended",
-        "plugin:import/typescript",
-        "plugin:astro/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module",
-        "project": "./tsconfig.json"
-    },
-    "globals": {
-        "astroHTML": true
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "import"
-    ],
-    "overrides": [
-        {
-          "files": ["*.astro"],
-          "parser": "astro-eslint-parser",
-          "parserOptions": {
-            "parser": "@typescript-eslint/parser",
-            "extraFileExtensions": [".astro"]
-          },
-          "rules": {
-            "astro/no-set-html-directive": "error"
-          }
-        },
-        {
-          "files": ["*.ts"],
-          "parser": "@typescript-eslint/parser"
-        }
-    ]
+	"ignorePatterns": ["*.d.ts", "src/layouts/BaseLayout.astro"],
+	"env": {
+		"browser": true, // ブラウザ対応
+		"es6": true, // ES2021に対応
+		"node": true // Node.js対応
+	},
+	"extends": [
+		// ESLintの推奨設定を使う
+		"eslint:recommended",
+		"plugin:import/typescript",
+		"plugin:astro/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"globals": {
+		"astroHTML": true
+	},
+	"plugins": ["@typescript-eslint", "import"],
+	"overrides": [
+		{
+			"files": ["*.astro"],
+			"parser": "astro-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"extraFileExtensions": [".astro"]
+			},
+			"rules": {
+				"astro/no-set-html-directive": "error"
+			}
+		},
+		{
+			"files": ["*.ts"],
+			"parser": "@typescript-eslint/parser"
+		}
+	]
 }

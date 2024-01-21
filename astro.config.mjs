@@ -8,10 +8,10 @@ export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
 	vite: {
-        server: {
-            fs: {
-                strict: false 
-            }
-        }
-    }
+		server: {
+			fs: {
+				strict: false,
+			},
+		},
+	},
 });
