@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
+
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -12,7 +13,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<script>
 			/* eslint-disable */
 			/* global Typekit */
-			
 			(function (d) {
 				var config = {
 						kitId: 'tph1piu',
@@ -45,7 +45,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main></main>
+		<main class="l-main">
+			<slot/>
+		</main>
 		<Footer />
 	</body>
 </html>

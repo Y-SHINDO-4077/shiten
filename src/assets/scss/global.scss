@@ -8,15 +8,15 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-black: 900;
+$font-size-regular:16px;
 
 body {
 	font-family: $ja-font;
+	font-size: $font-size-regular;
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	padding: 3em 1em;
+	
 	margin: auto;
 }
 
