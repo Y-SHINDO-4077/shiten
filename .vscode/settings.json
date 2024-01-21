@@ -5,6 +5,7 @@
 	"scss.validate": false,
 	"css.validate": false,
 	"less.validate": false,
+	"stylelint.config": null,
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
 	"editor.codeActionsOnSave": {
@@ -13,7 +14,6 @@
 		"source.fixAll.stylelint": "explicit"
 	},
 	"prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-	"stylelint.stylelintPath": "node_modules/stylelint",
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.tabSize": 2,
 	"eslint.codeActionsOnSave.rules": null
