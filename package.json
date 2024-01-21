@@ -2,7 +2,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -16,5 +16,23 @@
     "astro": "^4.2.1",
     "shikiji-core": "^0.10.0-beta.9",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@markuplint/astro-parser": "^3.12.0",
+    "@types/eslint": "^8",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-astro": "^0.31.3",
+    "eslint-plugin-import": "^2.29.1",
+    "postcss-html": "^1.6.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.10.0",
+    "sass": "^1.70.0",
+    "stylelint-config-recess-order": "^4.4.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+    "stylelint-no-unsupported-browser-features": "^8.0.0",
+    "stylelint-prettier": "^5.0.0",
+    "stylelint-scss": "^6.0.0"
   }
 }
