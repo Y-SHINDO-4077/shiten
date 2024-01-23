@@ -1,25 +1,25 @@
 @use '../../foundation/_base.scss' as *;
 
-.c-heading__h2 {
+.c-heading-h2 {
 	position: relative;
 	display: flex;
-	align-items: center;
 	gap: 16px;
+	align-items: center;
 	width: fit-content;
 	font-size: $font-size-xx-large;
 	font-weight: $font-weight-black;
 	white-space: nowrap;
 
 	&::after {
-		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		z-index: -1;
 		display: inline-flex;
 		width: calc(100% - 8px);
 		height: 10px;
-		position: absolute;
-		left: 50%;
-		bottom: 0px;
+		content: '';
 		background-color: $yellow;
 		transform: translateX(-50%);
-		z-index: -1;
 	}
 }

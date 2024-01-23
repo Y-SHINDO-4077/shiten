@@ -5,28 +5,20 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-black: 900;
-
-$font-size-regular:16px;
-$font-size-large:20px;
-$font-size-small:14px;
-$font-size-x-small:12px;
-
-$font-size-x-large:24px;
-$font-size-xx-large:32px;
-$font-size-xxx-large:48px;
-$font-size-xxxx-large:56px;
-
+$font-size-regular: 16px;
+$font-size-large: 20px;
+$font-size-small: 14px;
+$font-size-x-small: 12px;
+$font-size-x-large: 24px;
+$font-size-xx-large: 32px;
+$font-size-xxx-large: 48px;
+$font-size-xxxx-large: 56px;
 $white: #fff;
 $black: #000;
 $yellow: #e7ef61;
-$gray : #b9b9b9;
-
+$gray: #b9b9b9;
 
 body {
 	font-family: $ja-font;
 	font-size: $font-size-regular;
-}
-
-main {
-	margin: auto;
 }
