@@ -1,8 +1,17 @@
 @use '../../foundation/_base.scss' as *;
 
 .p-card {
-	display: block;
+	// display: block;
+	display: grid;
+	grid-template-rows: subgrid;
+	grid-row: span 5;
+	gap: 16px;
 	width: 100%;
+	transition: opacity 0.3s ease-in;
+
+	&:hover {
+		opacity: 0.7;
+	}
 }
 
 .p-card__image {
@@ -17,11 +26,10 @@
 }
 
 .p-card__role {
-	margin-top: 24px;
+	margin-top: 8px;
 }
 
 .p-card__title {
-	margin-top: 16px;
 	font-size: $font-size-x-large;
 	font-weight: $font-weight-bold;
 }
@@ -31,11 +39,11 @@
 }
 
 .p-card__description {
-	margin-top: 32px;
+	margin-top: 16px;
 }
 
 .p-card__date {
-	margin-top: 8px;
+	margin-top: -8px;
 	font-family: $en-font;
 	font-size: $font-size-small;
 	font-weight: $font-weight-medium;
