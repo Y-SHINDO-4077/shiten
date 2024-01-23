@@ -1,15 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MV from '../components/mv.astro';
+import ContentWrapper from '../components/ContentWrapper.astro';
 import Button from '../components/Button.astro';
 import Heading from '../components/Heading.astro';
 ---
 
 <BaseLayout>
 	<MV/>
-	<Heading heading='視点の専門家に聞く' icon="ear"/>
-	<Button url="/article" title="一覧はこちら"/>
-	<Heading heading='SHITENとは' icon="info"/>
-	<Heading heading='みんなの視点MAP' icon="map"/>
-	<Button url="/about" title="詳しくはこちら"/>
+	<ContentWrapper>
+		<Heading heading='視点の専門家に聞く' icon="ear"/>
+		<Button url="/article" title="一覧はこちら"/>
+		<Heading heading='SHITENとは' icon="info"/>
+		<Heading heading='みんなの視点MAP' icon="map"/>
+		<Button url="/about" title="詳しくはこちら"/>
+	</ContentWrapper>
 </BaseLayout>
