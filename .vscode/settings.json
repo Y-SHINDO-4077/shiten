@@ -1,7 +1,7 @@
 {
 	"stylelint.autoFixOnSave": true,
 	"stylelint.validate": ["html", "css", "less", "postcss", "scss", "astro"],
-	"prettier.documentSelectors": ["**/*.astro"],
+
 	"scss.validate": false,
 	"css.validate": false,
 	"less.validate": false,
@@ -10,10 +10,10 @@
 	"editor.formatOnPaste": true,
 	"editor.codeActionsOnSave": {
 		"source.addMissingImports": "explicit",
-		"source.fixAll.eslint": true,
-		"source.fixAll.stylelint":  true
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
 	},
-	"prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+	
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.tabSize": 2,
 	"eslint.codeActionsOnSave.rules": null

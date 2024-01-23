@@ -5,14 +5,5 @@
 	"tabWidth": 2,
 	"useTabs": true,
 	"singleQuote": true,
-	"proseWrap": "preserve",
-	"plugins": ["prettier-plugin-astro"],
-	"overrides": [
-		{
-			"files": "*.astro",
-			"options": {
-				"parser": "astro"
-			}
-		}
-	]
+	"proseWrap": "preserve"
 }
