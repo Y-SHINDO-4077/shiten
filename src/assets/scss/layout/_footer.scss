@@ -1,0 +1,39 @@
+	@use '../foundation/_base.scss' as *;
+
+	.l-footer {
+		text-align: center;
+		background-color: $yellow;
+		padding-block:40px 24px;
+	}
+
+	.p-footer{
+		display: flex;
+		justify-content: space-between;
+
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
+	}
+
+	.p-footer__navigation{
+		display: grid;
+    gap: 32px 48px;
+    grid-template-columns: 1fr 1fr;
+			@media screen and (max-width: 768px) {
+				margin-top:56px;
+				 grid-template-columns: 1fr;
+			}
+	}
+
+	.p-footer__navigation-item{
+		font-size: $font-size-large;
+		text-align: left;
+		@media screen and (max-width: 768px) {
+				text-align: center;
+		}
+	}
+
+	.p-footer__copyright{
+		margin-top: 48px;
+	}
+

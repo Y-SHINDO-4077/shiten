@@ -1,0 +1,13 @@
+	@use '../foundation/_base.scss' as *;
+
+  .l-header {
+		position:fixed;
+		top:0;
+		left:0;
+		display: flex;
+		justify-content: space-between ;
+		align-items: center;
+		width:100%;
+		margin-top: 64px;
+		margin-left: 24px;
+	}

@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import Ear from "../assets/images/ear-listen-solid.svg";
+import Info from "../assets/images/circle-info-solid.svg";
+import Map from "../assets/images/map-point-wave.svg";
+type Props = {
+  heading: string;
+  icon: "ear" | "info" | "map";
+  IconArray?: {
+    icon: "ear" | "info" | "map";
+    src: string;
+  }[];
+};
+const IconArray = [
+  {
+    icon: "ear",
+    src: Ear,
+  },
+  {
+    icon: "info",
+    src: Info,
+  },
+  {
+    icon: "map",
+    src: Map,
+  },
+];
+const { heading , icon = "ear"} = Astro.props;
+---
+<h2 class="c-heading__h2">
+  { heading }
+  <span>
+  { 
+      IconArray.find((item) => item.icon === icon)?.src && (
+        <Image src={IconArray.find((item) => item.icon === icon)?.src} alt="" />
+      )
+  }
+  </span>
+</h2>

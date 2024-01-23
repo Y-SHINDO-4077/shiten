@@ -1,0 +1,29 @@
+@use '../../foundation/_base.scss' as *;
+.c-button{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  min-width:72px;
+  padding: 20px 50px;
+  background-color: $yellow;
+  border-radius: 50vh;
+  font-size: $font-size-x-large;
+  font-weight: $font-weight-bold;
+  transform: translateX(0%);
+  transition: transform 0.3s ease-in;
+
+  &:hover{
+    .c-button__arrow{
+      transform: translateX(10%);
+       transition: transform 0.3s ease-out;
+    }
+  }
+}
+
+.c-button__arrow{
+  img{
+    vertical-align: middle;
+  }
+}

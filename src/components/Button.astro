@@ -1,0 +1,10 @@
+---
+import Arrow from '../assets/images/Arrow.svg';
+const { url , title } = Astro.props;
+---
+<a href={url} class="c-button">
+  {title}
+  <span class="c-button__arrow">
+    <img src={Arrow.src} alt="" />
+  </span>
+</a>

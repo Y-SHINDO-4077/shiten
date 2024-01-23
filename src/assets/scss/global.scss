@@ -1,24 +1,15 @@
 /* foundation */
-@use 'foundation/destyle.scss';
+@use 'foundation/_destyle.scss';
+@use 'foundation/_base.scss';
 
-$ja-font: 'm-plus-rounded-1c', sans-serif;
-$heading-font: 'toppan-bunkyu-midashi-go-std', sans-serif;
-$en-font: 'poppins', sans-serif;
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 700;
-$font-weight-black: 900;
-$font-size-regular:16px;
+/*layout*/
+@use 'layout/_baselayout.scss';
+@use 'layout/_header.scss';
+@use 'layout/_footer.scss';
 
-body {
-	font-family: $ja-font;
-	font-size: $font-size-regular;
-}
-
-main {
-	
-	margin: auto;
-}
+/*object/component*/
+@use 'object/component/_button.scss';
+@use 'object/component/_heading.scss';
 
 .sr-only {
 	position: absolute !important;
