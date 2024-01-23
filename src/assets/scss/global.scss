@@ -2,14 +2,18 @@
 @use 'foundation/_destyle.scss';
 @use 'foundation/_base.scss';
 
-/*layout*/
+/* layout */
 @use 'layout/_baselayout.scss';
 @use 'layout/_header.scss';
 @use 'layout/_footer.scss';
+@use 'layout/_grid.scss';
 
-/*object/component*/
+/* object/component */
 @use 'object/component/_button.scss';
 @use 'object/component/_heading.scss';
+
+/* object/project */
+@use 'object/project/_card.scss';
 
 .sr-only {
 	position: absolute !important;

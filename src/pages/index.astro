@@ -4,12 +4,26 @@ import MV from '../components/mv.astro';
 import ContentWrapper from '../components/ContentWrapper.astro';
 import Button from '../components/Button.astro';
 import Heading from '../components/Heading.astro';
+import Card from '../components/Card.astro';
+
+import CardImg from '../assets/images/card_img.jpg';
 ---
 
 <BaseLayout>
 	<MV/>
 	<ContentWrapper>
 		<Heading heading='視点の専門家に聞く' icon="ear"/>
+		<div class="l-grid">
+			<article class="l-grid__item">
+				<Card title="タイトル" url="/article" image={CardImg} description='テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト' role="犬山城マイスター" date=2023-12-23 />
+			</article>
+			<article class="l-grid__item">
+				<Card title="タイトル" url="/article" image={CardImg} description='テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト' role="犬山城マイスター" date=2023-12-23 />
+			</article>
+			<article class="l-grid__item">
+				<Card title="タイトル" url="/article" image={CardImg} description='テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト' role="犬山城マイスター" date=2023-12-23 />
+			</article>
+		</div>
 		<Button url="/article" title="一覧はこちら"/>
 		<Heading heading='SHITENとは' icon="info"/>
 		<Heading heading='みんなの視点MAP' icon="map"/>

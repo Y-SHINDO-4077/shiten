@@ -1,0 +1,43 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-card {
+	display: block;
+	width: 100%;
+}
+
+.p-card__image {
+	img {
+		width: 100%;
+		max-height: 215px;
+		aspect-ratio: 372/215;
+		border-radius: 10px;
+		object-position: center;
+		object-fit: cover;
+	}
+}
+
+.p-card__role {
+	margin-top: 24px;
+}
+
+.p-card__title {
+	margin-top: 16px;
+	font-size: $font-size-x-large;
+	font-weight: $font-weight-bold;
+}
+
+.p-card__compellation {
+	font-size: $font-size-regular;
+}
+
+.p-card__description {
+	margin-top: 32px;
+}
+
+.p-card__date {
+	margin-top: 8px;
+	font-family: $en-font;
+	font-size: $font-size-small;
+	font-weight: $font-weight-medium;
+	text-align: right;
+}

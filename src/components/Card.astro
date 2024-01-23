@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import FormattedDate from './FormattedDate.astro';
+
+
+type Props = {
+  url: string,
+	title: string,
+	image: ImageMetadata,
+	role: string,
+	description: string,
+	date: string,
+};
+const { url, title, image , role, description, date } = Astro.props;
+const articleDate = new Date(date);
+
+
+
+
+---
+
+<a href={url} class="p-card">
+	<div class="p-card__image">
+		<Image src={image} alt=""  />
+	</div>
+	<p class="p-card__role">{role}</p>
+	<h3 class="p-card__title">{title}
+		<span class="p-card__compellation">さん</span>
+	</h3>
+	<p class="p-card__description">{description}</p>
+	<p class="p-card__date">
+		<FormattedDate date={articleDate} />
+	</p>
+</a>
+
+

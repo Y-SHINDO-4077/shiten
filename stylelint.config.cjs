@@ -41,7 +41,7 @@ module.exports = {
 			noEmptyLineBetween: true,
 		})),
 		'selector-class-pattern': [
-			'^\\.(c|p|u)-[a-z0-9\\-]+$',
+			'^\\.(c|p|u)-[a-z0-9\\-__]+$',
 			{
 				resolveNestedSelectors: true,
 				message: 'Class names should follow FLOCSS syntax.',
