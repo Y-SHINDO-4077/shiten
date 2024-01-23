@@ -17,11 +17,13 @@
 		"astro": "^4.2.1",
 		"astro-eslint-parser": "^0.16.2",
 		"astro-imagetools": "^0.9.0",
+		"astro-relative-links": "^0.3.7",
 		"shikiji-core": "^0.10.0-beta.9",
 		"stylelint-config-html": "^1.1.0",
 		"stylelint-config-standard-scss": "^13.0.0",
 		"stylelint-order": "^6.0.4",
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"vite-tsconfig-paths": "^4.3.1"
 	},
 	"devDependencies": {
 		"@markuplint/astro-parser": "^3.12.0",
@@ -46,6 +48,7 @@
 		"stylelint-declaration-block-no-ignored-properties": "^2.8.0",
 		"stylelint-no-unsupported-browser-features": "^8.0.0",
 		"stylelint-prettier": "^5.0.0",
-		"stylelint-scss": "^6.0.0"
+		"stylelint-scss": "^6.0.0",
+		"tsconfig-paths": "^4.2.0"
 	}
 }
