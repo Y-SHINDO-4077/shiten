@@ -1,0 +1,7 @@
+@use '../../foundation/_base.scss' as *;
+
+.c-paragraph {
+	font-size: $font-size-regular;
+	font-weight: $font-weight-medium;
+	line-height: 1.5;
+}
