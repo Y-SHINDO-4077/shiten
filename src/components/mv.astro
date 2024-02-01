@@ -1,52 +1,293 @@
 ---
-
+import { Image } from 'astro:assets';
+import ContentWrapper from './ContentWrapper.astro';
+import CardImg from '../assets/images/card_img.jpg';
+import AboutImg01 from '../assets/images/about_img_01.jpg';
+import AboutImg02 from '../assets/images/about_img_02.jpg';
 ---
 
-<div class="mv">
-  <!-- <picture >
+<div class="p-mv">
+	<ContentWrapper>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="slide">
+						<div class="slide-media">
+							<Image src={CardImg} alt="slide1" class="p-mv__icon" />
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="slide">
+						<div class="slide-media">
+							<Image src={AboutImg01} alt="slide2" class="p-mv__icon" />
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="slide">
+						<div class="slide-media">
+							<Image src={AboutImg02} alt="slide3" class="p-mv__icon" />
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="slide">
+						<div class="slide-media">
+							<Image src={CardImg} alt="slide1" class="p-mv__icon" />
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="slide">
+						<div class="slide-media">
+							<Image src={AboutImg01} alt="slide2" class="p-mv__icon" />
+						</div>
+					</div>
+				</div>
 
-    <source media="(max-width: 768px)" srcset={MVsp.src}  class="mv__picture"/>
-    <img src={MVpc.src}alt="" class="mv__picture"/>
-  </picture> -->
+				<div class="swiper-slide">
+					<div class="slide">
+						<div class="slide-media">
+							<Image src={AboutImg02} alt="slide3" class="p-mv__icon" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-wrapper">
+				<div class="content is-animated">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
+								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+							</span>
+						</p>
+					</a>
+				</div>
+				<div class="content">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
+								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+							</span>
+						</p>
+					</a>
+				</div>
+				<div class="content">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
+								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+							</span>
+						</p>
+					</a>
+				</div>
+				<div class="content">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
+								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+							</span>
+						</p>
+					</a>
+				</div>
+				<div class="content">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
+								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+							</span>
+						</p>
+					</a>
+				</div>
+				<div class="content">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
+								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+							</span>
+						</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</ContentWrapper>
 </div>
 
 <style is:global lang="scss">
-  .mv {
-    position: relative;
-    width: 100%;
-    height: 100svh;
-    overflow: hidden;
-    background-image: url('/mv_pc.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
+	.p-mv {
+		position: relative;
+		z-index: -1;
+		width: 100%;
+		height: 100svh;
+		overflow: hidden;
+		background-image: url('/mv_pc.jpg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 
+		@media screen and (max-width: 768px) {
+			background-image: url('/mv_sp.jpg');
+		}
 
-    @media screen and (max-width: 768px) {
-      background-image: url('/mv_sp.jpg');
-      
-    }
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			content: '';
+			background: rgb(255 255 255 / 30%);
+		}
 
-      &::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.3);
-    }
-  }
-  .mv__picture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
+		.swiper {
+			height: 100svh;
+		}
+
+		.swiper-slide {
+			&[class*='-active'] {
+				.slide-media.clip img {
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+
+	.swiper-wrapper {
+		width: 100%;
+		max-width: 574px;
+		margin-block: calc(10svh);
+		margin-left: auto;
+	}
+
+	.slide-media {
+		width: 100%;
+		height: calc(100svh - 90px);
+		background-image: url('../assets/images/scope_icon.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@media only screen and (max-width: 1024px) {
+			height: max(70vh, 70vw);
+		}
+
+		img {
+			width: 100%;
+			max-width: 392px;
+			height: 100%;
+			max-height: 392px;
+			margin-top: 50px;
+			margin-left: 50px;
+			border-radius: 50%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	.content {
+		position: absolute;
+		bottom: min(40px, 20svh);
+		box-sizing: content-box;
+		max-width: 660px;
+		height: 200px;
+		margin-block: auto;
+		margin-right: auto;
+	}
+
+	.content-text {
+		position: relative;
+	}
+
+	.content.is-animated .content-text__markerBg::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: '';
+		background: #fff;
+		transform-origin: left center;
+		animation: bg 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+	}
+
+	.content-text__markerBg {
+		position: relative;
+		z-index: 1;
+		display: inline-block;
+		width: fit-content;
+		padding: 8px 16px;
+		font-size: 56px;
+		font-weight: bold;
+		white-space: nowrap;
+
+		&:last-of-type {
+			margin-top: 16px;
+		}
+	}
+
+	@keyframes bg {
+		0% {
+			opacity: 0;
+			transform: scaleX(0) translateX(-5%);
+		}
+
+		30% {
+			transform: scaleX(1) translateX(0);
+		}
+
+		100% {
+			transform: scaleX(1) translateX(0);
+		}
+
+		30%,
+		100% {
+			opacity: 1;
+		}
+	}
 </style>
+
+<script type="module">
+	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+
+	const slideLength = document.querySelectorAll('.p-mv .swiper-slide').length;
+	const startAnimation = index => {
+		let activeSlide = document.querySelectorAll('.p-mv .content')[index];
+		activeSlide.classList.add('is-animated');
+	};
+	// アニメーション終了
+	const finishAnimation = () => {
+		let activeSlides = document.querySelectorAll('.p-mv .content');
+		activeSlides.forEach(activeSlides => {
+			activeSlides.classList.remove('is-animated');
+		});
+	};
+
+	const mySwiper = new Swiper('.p-mv .swiper', {
+		loop: true,
+		loopAdditionalSlides: 2,
+		speed: 2000,
+		effect: 'fade',
+		autoplay: {
+			delay: 4000,
+			disableOnInteraction: false,
+			waitForTransition: false,
+		},
+		followFinger: false,
+		observeParents: true,
+		on: {
+			slideChange: swiper => {
+				finishAnimation();
+			},
+			slideChangeTransitionStart: swiper => {
+				startAnimation(swiper.realIndex);
+			},
+		},
+	});
+</script>

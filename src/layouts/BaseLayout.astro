@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -43,11 +43,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			})(document);
 			/* eslint-disable */
 		</script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
 		<main class="l-main">
-			<slot/>
+			<slot />
 		</main>
 		<Footer />
 	</body>
