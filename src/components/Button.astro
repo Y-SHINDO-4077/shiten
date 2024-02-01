@@ -2,13 +2,14 @@
 type Props = {
 	url: string;
 	title: string;
+	className?: string;
 };
 
 import Arrow from '../assets/images/Arrow.svg';
-const { url, title } = Astro.props;
+const { url, title, className } = Astro.props;
 ---
 
-<a href={url} class="c-button">
+<a href={url} class=`c-button ${className}`>
 	{title}
 	<span class="c-button__arrow">
 		<img src={Arrow.src} alt="" />

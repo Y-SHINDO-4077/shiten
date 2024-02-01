@@ -4,4 +4,8 @@
 	font-size: $font-size-regular;
 	font-weight: $font-weight-medium;
 	line-height: 1.5;
+
+	.c-paragraph__loose {
+		font-size: $font-line-height-large;
+	}
 }

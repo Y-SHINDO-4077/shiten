@@ -12,4 +12,9 @@
 
 .l-grid__item {
 	display: grid;
+
+	& > img {
+		width: 100%;
+		height: auto;
+	}
 }

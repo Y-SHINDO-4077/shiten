@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MV from '../components/mv.astro';
 import ContentWrapper from '../components/ContentWrapper.astro';
@@ -7,56 +8,96 @@ import Heading from '../components/Heading.astro';
 import Card from '../components/Card.astro';
 import Text from '../components/Text.astro';
 
+import Logo from '../assets/images/logo.svg';
 import CardImg from '../assets/images/card_img.jpg';
+import AboutImg01 from '../assets/images/about_img_01.jpg';
+import AboutImg02 from '../assets/images/about_img_02.jpg';
+import AboutImg03 from '../assets/images/about_img_03.jpg';
+import AichiMap from '../assets/images/aichi_map.png';
 ---
 
 <BaseLayout>
 	<MV />
 	<ContentWrapper>
-		<Heading heading="視点の専門家に聞く" icon="ear" />
-		<Text> まちを楽しむには「視点」が必要なのでは？面白いマニアックなまちの見方、楽しめるまちの見方を持っている方々の記事はこちらから。 </Text>
-		<div class="l-grid">
-			<article class="l-grid__item">
-				<Card
-					title="たかまる。"
-					url="/article"
-					image={CardImg}
-					description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-					role="犬山城マイスター"
-					date="2023-12-23"
-				/>
-			</article>
-			<article class="l-grid__item">
-				<Card
-					title="たかまる。"
-					url="/article"
-					image={CardImg}
-					description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-					role="犬山城マイスター"
-					date="2023-12-23"
-				/>
-			</article>
-			<article class="l-grid__item">
-				<Card
-					title="たかまる。"
-					url="/article"
-					image={CardImg}
-					description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-					role="犬山城マイスター"
-					date="2023-12-23"
-				/>
-			</article>
-		</div>
-		<Button url="/article" title="一覧はこちら" />
-		<Heading heading="SHITENとは" icon="info" />
-		<Text>
-			暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
-			まちを楽しむには「視点」が必要なのでは？
-			<br />
-			そのような仮説に基づいて、記事を更新したり、みなさんの
-			<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
-		</Text>
-		<Heading heading="みんなの視点MAP" icon="map" />
-		<Button url="/about" title="詳しくはこちら" />
+		<section class="p-top-articles u-margin__top--sp56 u-margin__top144">
+			<Heading heading="視点の専門家に聞く" icon="ear" />
+			<Text className="u-margin__top--sp24 u-margin__top32">まちを楽しむには「視点」が必要なのでは？面白いマニアックなまちの見方、楽しめるまちの見方を持っている方々の記事はこちらから。 </Text>
+			<div class="l-grid u-margin__top40">
+				<article class="l-grid__item">
+					<Card
+						title="たかまる。"
+						url="/article"
+						image={CardImg}
+						description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+						role="犬山城マイスター"
+						date="2023-12-23"
+					/>
+				</article>
+				<article class="l-grid__item">
+					<Card
+						title="たかまる。"
+						url="/article"
+						image={CardImg}
+						description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+						role="犬山城マイスター"
+						date="2023-12-23"
+					/>
+				</article>
+				<article class="l-grid__item">
+					<Card
+						title="たかまる。"
+						url="/article"
+						image={CardImg}
+						description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+						role="犬山城マイスター"
+						date="2023-12-23"
+					/>
+				</article>
+			</div>
+			<div class="p-button u-center">
+				<Button url="/article" title="一覧はこちら" className="u-margin__topsp44  u-margin__top64" />
+			</div>
+		</section>
+		<section class="p-top-info u-margin__top--sp56 u-margin__top144">
+			<Heading heading=`<img src=${Logo.src} alt="SHITEN" width="320" height="72" />とは` icon="info" />
+			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32">
+				暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
+				まちを楽しむには「視点」が必要なのでは？
+				<br />
+				そのような仮説に基づいて、記事を更新したり、みなさんの
+				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
+			</Text>
+			<div class="p-button u-center">
+				<Button url="/about" title="詳しくはこちら" className="u-margin__topsp44  u-margin__top64" />
+			</div>
+		</section>
+		<section class="p-top-map u-margin__top--sp56 u-margin__top144 u-margin__bottom--sp56 u-margin__bottom96">
+			<Heading heading="みんなの視点MAP" icon="map" />
+			<div class="p-top-map__insta u-margin__top--sp16 u-margin__top24">
+				<div class="l-grid">
+					<div class="l-grid__item">
+						<Image src={AboutImg01} alt="" />
+					</div>
+					<div class="l-grid__item">
+						<Image src={AboutImg02} alt="" />
+					</div>
+					<div class="l-grid__item">
+						<Image src={AboutImg03} alt="" />
+					</div>
+					<div class="l-grid__item">
+						<Image src={AboutImg01} alt="" />
+					</div>
+					<div class="l-grid__item">
+						<Image src={AboutImg02} alt="" />
+					</div>
+					<div class="l-grid__item">
+						<Image src={AboutImg03} alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="u-margin__top64 u-margin__top--sp96 p-map">
+				<Image src={AichiMap} alt="愛知県の地図" />
+			</div>
+		</section>
 	</ContentWrapper>
 </BaseLayout>

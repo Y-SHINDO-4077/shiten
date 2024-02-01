@@ -22,4 +22,11 @@
 		background-color: $yellow;
 		transform: translateX(-50%);
 	}
+
+	.c-heading-h2__icon {
+		position: absolute;
+		top: 50%;
+		right: -64px;
+		transform: translateY(-50%);
+	}
 }
