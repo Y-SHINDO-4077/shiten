@@ -69,8 +69,18 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 					<a href="">
 						<p class="content-text">
 							<span class="content-text__marker">
-								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
-								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+								<span class="content-text__markerBg">片手袋研究家って何？ </span>
+								<span class="content-text__markerBg">片手袋を分類するまちの楽しみ方とは</span>
+							</span>
+						</p>
+					</a>
+				</div>
+				<div class="content">
+					<a href="">
+						<p class="content-text">
+							<span class="content-text__marker">
+								<span class="content-text__markerBg">暮らし観光って何？</span>
+								<span class="content-text__markerBg">ファインダー越しにみるまちの魅力とは</span>
 							</span>
 						</p>
 					</a>
@@ -89,8 +99,8 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 					<a href="">
 						<p class="content-text">
 							<span class="content-text__marker">
-								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
-								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+								<span class="content-text__markerBg">片手袋研究家って何？ </span>
+								<span class="content-text__markerBg">片手袋を分類するまちの楽しみ方とは</span>
 							</span>
 						</p>
 					</a>
@@ -99,18 +109,8 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 					<a href="">
 						<p class="content-text">
 							<span class="content-text__marker">
-								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
-								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
-							</span>
-						</p>
-					</a>
-				</div>
-				<div class="content">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
-								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
+								<span class="content-text__markerBg">暮らし観光って何？</span>
+								<span class="content-text__markerBg">ファインダー越しにみるまちの魅力とは</span>
 							</span>
 						</p>
 					</a>
@@ -201,34 +201,39 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 		margin-right: auto;
 	}
 
-	.content-text {
-		position: relative;
-	}
-
-	.content.is-animated .content-text__markerBg::before {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		content: '';
-		background: #fff;
-		transform-origin: left center;
-		animation: bg 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-	}
-
 	.content-text__markerBg {
 		position: relative;
-		z-index: 1;
+		z-index: 3;
 		display: inline-block;
 		width: fit-content;
 		padding: 8px 16px;
-		font-size: 56px;
+		font-size: clamp(16px, 0.286rem + 3.57vw, 56px);
 		font-weight: bold;
 		white-space: nowrap;
+		opacity: 0;
+		transition: opacity 0.2s ease-in;
 
 		&:last-of-type {
 			margin-top: 16px;
+		}
+	}
+
+	.content.is-animated {
+		.content-text__markerBg {
+			opacity: 1;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				content: '';
+				background: #fff;
+				transform-origin: left center;
+				animation: bg 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+			}
 		}
 	}
 
