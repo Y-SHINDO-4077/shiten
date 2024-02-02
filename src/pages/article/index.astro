@@ -37,10 +37,10 @@ let posts = await response.json();
 								title={post.title.rendered}
 								url={`/article/${post.slug}`}
 								image={post.media_details && post.media_details.source_url ? post.media_details.source_url : { CardImg }}
-								role={`${post.acf.role}さん`}
-								description={post.title.rendered}
+								role={`${post.acf.role}`}
+								description={post.content.excerpt}
 								date={post.date}
-								title={post.title.rendered}
+								title={post.acf.name}
 							/>
 						</li>
 					))
