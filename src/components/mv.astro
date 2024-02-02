@@ -163,13 +163,15 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 	.swiper-wrapper {
 		width: 100%;
 		max-width: 574px;
-		margin-block: calc(10svh);
+		margin-block: 2svh 10svh;
 		margin-left: auto;
 	}
 
 	.slide-media {
+		position: relative;
+		z-index: 1;
 		width: 100%;
-		height: calc(100svh - 90px);
+		height: 88svh;
 		background-image: url('../assets/images/scope_icon.svg');
 		background-repeat: no-repeat;
 		background-size: contain;
@@ -178,11 +180,15 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 			height: max(70vh, 70vw);
 		}
 
+		@media only screen and (max-width: 768px) {
+			height: 88svh;
+		}
+
 		img {
 			width: 100%;
-			max-width: 392px;
+			max-width: 400px;
 			height: 100%;
-			max-height: 392px;
+			max-height: 400px;
 			margin-top: 50px;
 			margin-left: 50px;
 			border-radius: 50%;
@@ -256,6 +262,8 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 			opacity: 1;
 		}
 	}
+
+	
 </style>
 
 <script type="module">
