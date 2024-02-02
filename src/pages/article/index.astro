@@ -5,6 +5,9 @@ import ContentWrapper from '../../components/ContentWrapper.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 import result from 'postcss/lib/result';
+import Card from '../../components/Card.astro';
+import CardImg from '../../assets/images/card_img.jpg';
+import { getPositionOfLineAndCharacter } from 'typescript';
 // import { getCollection } from 'astro:content';
 // import FormattedDate from '../../components/FormattedDate.astro';
 
@@ -12,7 +15,7 @@ import result from 'postcss/lib/result';
 // 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 // );
 
-let response = await fetch('http://localhost:8080/wp-json/wp/v2/posts?_embed&acf_format=standard');
+let response = await fetch('https://dooshin.net/shiten_wp//wp-json/wp/v2/posts?_embed&acf_format=standard');
 if (!response.ok) {
 	throw new Error(`HTTP error! status: ${response.status}`);
 }
@@ -30,9 +33,15 @@ let posts = await response.json();
 				{
 					posts.map(post => (
 						<li class="i-grid__item">
-							<a href={`/blog/${post.slug}`}>
-								<h2 set:html={post.title.rendered} />
-							</a>
+							<Card
+								title={post.title.rendered}
+								url={`/article/${post.slug}`}
+								image={post.media_details && post.media_details.source_url ? post.media_details.source_url : { CardImg }}
+								role={`${post.acf.role}さん`}
+								description={post.title.rendered}
+								date={post.date}
+								title={post.title.rendered}
+							/>
 						</li>
 					))
 				}

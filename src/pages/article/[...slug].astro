@@ -1,13 +1,15 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
 const { slug } = Astro.params;
-let response = await fetch(`http://localhost:8080/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
+let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
 if (!response.ok) {
 	throw new Error(`HTTP error! status: ${response.status}`);
 }
-let posts = await response.json();
+const [post] = await response.json();
+const renderedContent = post.content.rendered;
 
 export async function getStaticPaths() {
-	let response = await fetch(`http://localhost:8080/wp-json/wp/v2/posts`);
+	let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed`);
 	if (!response.ok) {
 		throw new Error(`HTTP error! status: ${response.status}`);
 	}
@@ -20,7 +22,11 @@ export async function getStaticPaths() {
 }
 ---
 
-<article set:html={posts.content} />
+<BaseLayout>
+	<article>
+		<Fragment set:html={renderedContent} />
+	</article>
+</BaseLayout>
 
 <style id="wp-block-post-featured-image-inline-css">
 	.wp-block-post-featured-image {
