@@ -18,7 +18,7 @@ export default defineConfig({
 	},
 	base: '/',
 	outDir: './dist',
-	output: 'hybrid',
+	output: 'server',
 	adapter: vercel({
 		edgeMiddleware: true,
 		webAnalytics: {
