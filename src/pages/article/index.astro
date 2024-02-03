@@ -5,6 +5,8 @@ import ContentWrapper from '../../components/ContentWrapper.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 import result from 'postcss/lib/result';
+import Heading from '../../components/Heading.astro';
+import Text from '../../components/Text.astro';
 import Card from '../../components/Card.astro';
 import CardImg from '../../assets/images/card_img.jpg';
 import { getPositionOfLineAndCharacter } from 'typescript';
@@ -28,17 +30,18 @@ let posts = await response.json();
 <BaseLayout title={`視点の専門家に聞く | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
 	<section class="u-margin__top144 u-margin__bottom96">
 		<ContentWrapper>
-			<h1>視点の専門家に聞く</h1>
-			<ul class="l-grid">
+			<Heading type="h1" heading="視点の専門家に聞く" icon="ear" className="u-margin__inline" />
+			<Text className="u-margin__top32">まちを楽しむには「視点」が必要なのでは？面白いマニアックなまちの見方、楽しめるまちの見方を持っている方々の記事はこちらから。</Text>
+			<ul class="l-grid u-margin__top72">
 				{
 					posts.map(post => (
 						<li class="i-grid__item">
 							<Card
 								title={post.title.rendered}
 								url={`/article/${post.slug}`}
-								image={post.media_details && post.media_details.source_url ? post.media_details.source_url : { CardImg }}
+								image={post.media_details && post.media_details ? post.media_details.sizes.full.source_url : { CardImg }}
 								role={`${post.acf.role}`}
-								description={post.content.excerpt}
+								description={post.excerpt.rendered}
 								date={post.date}
 								title={post.acf.name}
 							/>

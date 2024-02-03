@@ -7,6 +7,7 @@
 	grid-row: span 5;
 	gap: 16px;
 	width: 100%;
+	pointer-events: visible;
 	transition: opacity 0.3s ease-in;
 
 	@media screen and (min-width: 769px) {

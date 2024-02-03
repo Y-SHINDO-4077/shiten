@@ -1,5 +1,6 @@
 @use '../../foundation/_base.scss' as *;
 
+.c-heading-h1,
 .c-heading-h2 {
 	position: relative;
 	display: flex;
@@ -23,6 +24,7 @@
 		transform: translateX(-50%);
 	}
 
+	.c-heading-h1__icon,
 	.c-heading-h2__icon {
 		position: absolute;
 		top: 50%;

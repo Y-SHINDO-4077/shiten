@@ -1,5 +1,7 @@
 ---
+export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
 const { slug } = Astro.params;
 let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
 if (!response.ok) {
@@ -20,10 +22,16 @@ export async function getStaticPaths() {
 		props: { post: post },
 	}));
 }
+
+const articleDate = new Date(post.date);
 ---
 
 <BaseLayout>
 	<article>
+		<img src={post._embedded['wp:featuredmedia'][0].source_url} alt={post.title.rendered} />
+		<h1>{post.title.rendered}</h1>
+
+		<FormattedDate date={articleDate} />
 		<Fragment set:html={renderedContent} />
 	</article>
 </BaseLayout>

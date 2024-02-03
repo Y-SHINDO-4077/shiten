@@ -5,6 +5,8 @@ import Info from '../assets/images/circle-info-solid.svg';
 import Map from '../assets/images/map-point-wave.svg';
 type Props = {
 	heading: string;
+	type: 'h1' | 'h2' | 'h3';
+	className?: string;
 	icon: 'ear' | 'info' | 'map';
 	IconArray?: {
 		icon: 'ear' | 'info' | 'map';
@@ -25,11 +27,21 @@ const IconArray = [
 		src: Map,
 	},
 ];
-const { heading, icon = 'ear' } = Astro.props;
+const { heading, type, icon = 'ear', className } = Astro.props;
 ---
 
-<h2 class="c-heading-h2" set:html={heading}>
-	<span class="c-heading-h2__icon">
-		{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}
-	</span>
-</h2>
+{
+	type === 'h1' ? (
+		<h1 class={`c-heading-h1 ${className}`} set:html={heading}>
+			<span class="c-heading-h1__icon">{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}</span>
+		</h1>
+	) : type === 'h2' ? (
+		<h2 class={`c-heading-h2 ${className}`} set:html={heading}>
+			<span class="c-heading-h2__icon">{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}</span>
+		</h2>
+	) : (
+		<h3 class={`c-heading-h3 ${className}`} set:html={heading}>
+			<span class="c-heading-h3__icon">{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}</span>
+		</h3>
+	)
+}
