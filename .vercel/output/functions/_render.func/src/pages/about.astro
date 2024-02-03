@@ -1,0 +1,32 @@
+---
+export const prerender = false;
+import { Image } from 'astro:assets';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentWrapper from '../components/ContentWrapper.astro';
+import Button from '../components/Button.astro';
+import Heading from '../components/Heading.astro';
+import Text from '../components/Text.astro';
+
+import Logo from '../assets/images/logo.svg';
+
+import AboutImg01 from '../assets/images/about_img_01.jpg';
+import AboutImg02 from '../assets/images/about_img_02.jpg';
+import AboutImg03 from '../assets/images/about_img_03.jpg';
+import AichiMap from '../assets/images/aichi_map.png';
+---
+
+<BaseLayout>
+	<ContentWrapper>
+		<section class="p-top-info u-margin__top--sp56 u-margin__top144">
+			<Heading type="h2" heading=`<img src=${Logo.src} alt="SHITEN" width="320" height="72" />とは` icon="info" />
+			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32">
+				暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
+				まちを楽しむには「視点」が必要なのでは？
+				<br />
+				そのような仮説に基づいて、記事を更新したり、みなさんの
+				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
+			</Text>
+		</section>
+	</ContentWrapper>
+</BaseLayout>
