@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MV from '../components/mv.astro';
 import ContentWrapper from '../components/ContentWrapper.astro';
@@ -14,6 +15,12 @@ import AboutImg01 from '../assets/images/about_img_01.jpg';
 import AboutImg02 from '../assets/images/about_img_02.jpg';
 import AboutImg03 from '../assets/images/about_img_03.jpg';
 import AichiMap from '../assets/images/aichi_map.png';
+
+let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
+if (!response.ok) {
+	throw new Error(`HTTP error! status: ${response.status}`);
+}
+let posts = await response.json();
 ---
 
 <BaseLayout>
@@ -23,36 +30,21 @@ import AichiMap from '../assets/images/aichi_map.png';
 			<Heading type="h2" heading="視点の専門家に聞く" icon="ear" />
 			<Text className="u-margin__top--sp24 u-margin__top32">まちを楽しむには「視点」が必要なのでは？面白いマニアックなまちの見方、楽しめるまちの見方を持っている方々の記事はこちらから。 </Text>
 			<div class="l-grid u-margin__top40">
-				<article class="l-grid__item">
-					<Card
-						title="たかまる。"
-						url="/article"
-						image={CardImg}
-						description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-						role="犬山城マイスター"
-						date="2023-12-23"
-					/>
-				</article>
-				<article class="l-grid__item">
-					<Card
-						title="たかまる。"
-						url="/article"
-						image={CardImg}
-						description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-						role="犬山城マイスター"
-						date="2023-12-23"
-					/>
-				</article>
-				<article class="l-grid__item">
-					<Card
-						title="たかまる。"
-						url="/article"
-						image={CardImg}
-						description="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-						role="犬山城マイスター"
-						date="2023-12-23"
-					/>
-				</article>
+				{
+					posts.map(post => (
+						<article class="l-grid__item">
+							<Card
+								title={post.title.rendered}
+								url={`/article/${post.slug}`}
+								image={post.thumbnail_url ? post.thumbnail_url.url : { CardImg }}
+								role={`${post.acf.role}`}
+								description={post.excerpt.rendered}
+								date={post.date}
+								title={post.acf.name}
+							/>
+						</article>
+					))
+				}
 			</div>
 			<div class="p-button u-center">
 				<Button url="/article" title="一覧はこちら" className="u-margin__topsp44  u-margin__top64" />

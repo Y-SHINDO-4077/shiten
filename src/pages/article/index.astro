@@ -3,28 +3,16 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentWrapper from '../../components/ContentWrapper.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import FormattedDate from '../../components/FormattedDate.astro';
-import result from 'postcss/lib/result';
 import Heading from '../../components/Heading.astro';
 import Text from '../../components/Text.astro';
 import Card from '../../components/Card.astro';
 import CardImg from '../../assets/images/card_img.jpg';
-import { getPositionOfLineAndCharacter } from 'typescript';
-// import { getCollection } from 'astro:content';
-// import FormattedDate from '../../components/FormattedDate.astro';
 
-// const posts = (await getCollection('blog')).sort(
-// 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-// );
-
-let response = await fetch('https://dooshin.net/shiten_wp//wp-json/wp/v2/posts?_embed&acf_format=standard');
+let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
 if (!response.ok) {
 	throw new Error(`HTTP error! status: ${response.status}`);
 }
 let posts = await response.json();
-
-// 各ページで使うデータ
-// const { paged } = Astro.params;
 ---
 
 <BaseLayout title={`視点の専門家に聞く | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
@@ -35,17 +23,19 @@ let posts = await response.json();
 			<ul class="l-grid u-margin__top72">
 				{
 					posts.map(post => (
-						<li class="i-grid__item">
-							<Card
-								title={post.title.rendered}
-								url={`/article/${post.slug}`}
-								image={post.media_details && post.media_details ? post.media_details.sizes.full.source_url : { CardImg }}
-								role={`${post.acf.role}`}
-								description={post.excerpt.rendered}
-								date={post.date}
-								title={post.acf.name}
-							/>
-						</li>
+						<>
+							<li class="i-grid__item">
+								<Card
+									title={post.title.rendered}
+									url={`/article/${post.slug}`}
+									image={post.thumbnail_url ? post.thumbnail_url.url : { CardImg }}
+									role={`${post.acf.role}`}
+									description={post.excerpt.rendered}
+									date={post.date}
+									title={post.acf.name}
+								/>
+							</li>
+						</>
 					))
 				}
 			</ul>

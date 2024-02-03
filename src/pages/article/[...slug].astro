@@ -32,6 +32,16 @@ const articleDate = new Date(post.date);
 		<h1>{post.title.rendered}</h1>
 
 		<FormattedDate date={articleDate} />
+		<div class="profile">
+			<div class="">
+				<img src={post.acf.eyecatch} alt="profile" />
+			</div>
+			<div>
+				<p>{post.acf.role}</p>
+				<p>{post.acf.name}<span>さん</span></p>
+				<p>{post.acf.description}</p>
+			</div>
+		</div>
 		<Fragment set:html={renderedContent} />
 	</article>
 </BaseLayout>
