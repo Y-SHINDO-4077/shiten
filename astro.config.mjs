@@ -16,7 +16,15 @@ export default defineConfig({
 			},
 		},
 	},
+	base: '/',
 	outDir: './dist',
 	output: 'server',
 	adapter: vercel(),
+	compressHTML: false,
+	trailingSlash: 'ignore',
+	build: {
+		assets: 'assets',
+		inlineStylesheets: 'always',
+		cssCodeSplit: false,
+	},
 });
