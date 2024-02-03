@@ -3,7 +3,7 @@
 .l-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 32px;
+	grid-gap: min(32px, 3vw);
 
 	@media screen and (max-width: 768px) {
 		grid-template-columns: repeat(1, 1fr);

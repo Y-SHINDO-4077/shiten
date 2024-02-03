@@ -1,5 +1,10 @@
 .l-section-inner {
+	width: 88%;
 	max-width: 1210px;
 	padding: 0 20px;
 	margin: auto;
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
 }
