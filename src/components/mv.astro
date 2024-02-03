@@ -5,7 +5,7 @@ import CardImg from '../assets/images/card_img.jpg';
 import AboutImg01 from '../assets/images/about_img_01.jpg';
 import AboutImg02 from '../assets/images/about_img_02.jpg';
 
-let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
+let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?per_page=3&context=embed&acf_format=standard');
 if (!response.ok) {
 	throw new Error(`HTTP error! status: ${response.status}`);
 }
@@ -57,7 +57,7 @@ let posts = await response.json();
 						}
 						return (
 							<div class="content">
-								<a href={`/artile/${post.slug}`}>
+								<a class="content-link" href={`/article/${post.slug}`}>
 									<p class="content-text">
 										<span class="content-text__marker">
 											{posttitleArray.slice(0, 2).map(word => (
@@ -82,7 +82,7 @@ let posts = await response.json();
 						}
 						return (
 							<div class="content">
-								<a href={`/artile/${post.slug}`}>
+								<a class="content-link" href={`/article/${post.slug}`}>
 									<p class="content-text">
 										<span class="content-text__marker">
 											{posttitleArray.slice(0, 2).map(word => (
@@ -183,6 +183,7 @@ let posts = await response.json();
 		position: relative;
 		z-index: 3;
 		display: inline-block;
+		display: none;
 		width: fit-content;
 		padding: 8px 16px;
 		font-size: clamp(16px, 0.286rem + 3.57vw, 56px);
@@ -197,7 +198,18 @@ let posts = await response.json();
 	}
 
 	.content.is-animated {
+		.content-link {
+			@media screen and (min-width: 768px) {
+				&:hover {
+					.content-text__markerBg {
+						opacity: 0.7;
+					}
+				}
+			}
+		}
+
 		.content-text__markerBg {
+			display: inline-block;
 			opacity: 1;
 
 			&::before {
@@ -240,6 +252,9 @@ let posts = await response.json();
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
 	const slideLength = document.querySelectorAll('.p-mv .swiper-slide').length;
+	window.addEventListener('DOMContentLoaded', () => {
+		startAnimation(0);
+	});
 	const startAnimation = index => {
 		let activeSlide = document.querySelectorAll('.p-mv .content')[index];
 		activeSlide.classList.add('is-animated');
