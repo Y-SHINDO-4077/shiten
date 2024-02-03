@@ -18,8 +18,14 @@ export default defineConfig({
 	},
 	base: '/',
 	outDir: './dist',
-	output: 'server',
-	adapter: vercel(),
+	output: 'hybrid',
+	adapter: vercel({
+		edgeMiddleware: true,
+		webAnalytics: {
+			enabled: true,
+		},
+		maxDuration: 8,
+	}),
 	compressHTML: false,
 	trailingSlash: 'ignore',
 	build: {

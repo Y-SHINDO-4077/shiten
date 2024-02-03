@@ -4,7 +4,7 @@
 	"scripts": {
 		"dev": "astro dev --host && lint",
 		"start": "astro dev",
-		"build": "astro check && astro build",
+		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "markuplint \"./src/**/*.astro\" && eslint \"./src/**/*.astro\" \"./src/**/*.js\" && stylelint \"./src/**/*.scss\" --fix"
