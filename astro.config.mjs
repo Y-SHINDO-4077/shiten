@@ -16,7 +16,6 @@ export default defineConfig({
 			},
 		},
 	},
-	base: '/',
 	outDir: './dist',
 	output: 'server',
 	adapter: vercel(),
