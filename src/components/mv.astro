@@ -4,117 +4,97 @@ import ContentWrapper from './ContentWrapper.astro';
 import CardImg from '../assets/images/card_img.jpg';
 import AboutImg01 from '../assets/images/about_img_01.jpg';
 import AboutImg02 from '../assets/images/about_img_02.jpg';
+
+let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
+if (!response.ok) {
+	throw new Error(`HTTP error! status: ${response.status}`);
+}
+let posts = await response.json();
 ---
 
 <div class="p-mv">
 	<ContentWrapper>
 		<div class="swiper">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<div class="slide">
-						<div class="slide-media">
-							<Image src={CardImg} alt="slide1" class="p-mv__icon" />
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="slide">
-						<div class="slide-media">
-							<Image src={AboutImg01} alt="slide2" class="p-mv__icon" />
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="slide">
-						<div class="slide-media">
-							<Image src={AboutImg02} alt="slide3" class="p-mv__icon" />
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="slide">
-						<div class="slide-media">
-							<Image src={CardImg} alt="slide1" class="p-mv__icon" />
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="slide">
-						<div class="slide-media">
-							<Image src={AboutImg01} alt="slide2" class="p-mv__icon" />
-						</div>
-					</div>
-				</div>
-
-				<div class="swiper-slide">
-					<div class="slide">
-						<div class="slide-media">
-							<Image src={AboutImg02} alt="slide3" class="p-mv__icon" />
-						</div>
-					</div>
-				</div>
+				{
+					posts.map(post => {
+						return (
+							<div class="swiper-slide">
+								<div class="slide">
+									<div class="slide-media">
+										<img src={post.thumbnail_url.url} alt="" class="p-mv__icon" />
+									</div>
+								</div>
+							</div>
+						);
+					})
+				}
+				{
+					posts.map(post => {
+						return (
+							<div class="swiper-slide">
+								<div class="slide">
+									<div class="slide-media">
+										<img src={post.thumbnail_url.url} alt="" class="p-mv__icon" />
+									</div>
+								</div>
+							</div>
+						);
+					})
+				}
 			</div>
+
 			<div class="content-wrapper">
-				<div class="content is-animated">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
-								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
-							</span>
-						</p>
-					</a>
-				</div>
-				<div class="content">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg">片手袋研究家って何？ </span>
-								<span class="content-text__markerBg">片手袋を分類するまちの楽しみ方とは</span>
-							</span>
-						</p>
-					</a>
-				</div>
-				<div class="content">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg">暮らし観光って何？</span>
-								<span class="content-text__markerBg">ファインダー越しにみるまちの魅力とは</span>
-							</span>
-						</p>
-					</a>
-				</div>
-				<div class="content">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg"> 犬山城マイスターに聞く </span>
-								<span class="content-text__markerBg"> 犬山城下の楽しみ方 </span>
-							</span>
-						</p>
-					</a>
-				</div>
-				<div class="content">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg">片手袋研究家って何？ </span>
-								<span class="content-text__markerBg">片手袋を分類するまちの楽しみ方とは</span>
-							</span>
-						</p>
-					</a>
-				</div>
-				<div class="content">
-					<a href="">
-						<p class="content-text">
-							<span class="content-text__marker">
-								<span class="content-text__markerBg">暮らし観光って何？</span>
-								<span class="content-text__markerBg">ファインダー越しにみるまちの魅力とは</span>
-							</span>
-						</p>
-					</a>
-				</div>
+				{
+					posts.map(post => {
+						let posttitle = post.title.rendered;
+						let pattern = ' ';
+						let posttitleArray = [];
+						if (posttitle.match(pattern)) {
+							posttitleArray = posttitle.split(pattern);
+						} else {
+							posttitleArray = [posttitle];
+						}
+						return (
+							<div class="content">
+								<a href={`/artile/${post.slug}`}>
+									<p class="content-text">
+										<span class="content-text__marker">
+											{posttitleArray.slice(0, 2).map(word => (
+												<span class="content-text__markerBg">{word}</span>
+											))}
+										</span>
+									</p>
+								</a>
+							</div>
+						);
+					})
+				}
+				{
+					posts.map(post => {
+						let posttitle = post.title.rendered;
+						let pattern = ' ';
+						let posttitleArray = [];
+						if (posttitle.match(pattern)) {
+							posttitleArray = posttitle.split(pattern);
+						} else {
+							posttitleArray = [posttitle];
+						}
+						return (
+							<div class="content">
+								<a href={`/artile/${post.slug}`}>
+									<p class="content-text">
+										<span class="content-text__marker">
+											{posttitleArray.slice(0, 2).map(word => (
+												<span class="content-text__markerBg">{word}</span>
+											))}
+										</span>
+									</p>
+								</a>
+							</div>
+						);
+					})
+				}
 			</div>
 		</div>
 	</ContentWrapper>
@@ -150,19 +130,11 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 		.swiper {
 			height: 100svh;
 		}
-
-		.swiper-slide {
-			&[class*='-active'] {
-				.slide-media.clip img {
-					transform: scale(1.2);
-				}
-			}
-		}
 	}
 
 	.swiper-wrapper {
 		width: 100%;
-		max-width: 574px;
+		max-width: 650px;
 		margin-block: 2svh 10svh;
 		margin-left: auto;
 	}
@@ -186,9 +158,9 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 
 		img {
 			width: 100%;
-			max-width: 400px;
+			max-width: 460px;
 			height: 100%;
-			max-height: 400px;
+			max-height: 460px;
 			margin-top: 50px;
 			margin-left: 50px;
 			border-radius: 50%;
