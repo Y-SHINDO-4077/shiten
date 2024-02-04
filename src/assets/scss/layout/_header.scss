@@ -14,6 +14,20 @@
 .p-header__title {
 	margin-top: 32px;
 	margin-left: 24px;
+
+	@media screen and (max-width: 768px) {
+		margin-top: 16px;
+		margin-left: 4vw;
+	}
+}
+
+.p-header__subtitle {
+	margin-top: 8px;
+	font-size: $font-size-regular;
+
+	@media screen and (max-width: 768px) {
+		font-size: $font-size-x-small;
+	}
 }
 
 .p-hamburger {

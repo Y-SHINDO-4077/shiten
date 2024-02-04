@@ -17,7 +17,7 @@ import AboutImg02 from '../assets/images/about_img_02.jpg';
 import AboutImg03 from '../assets/images/about_img_03.jpg';
 import AichiMap from '../assets/images/aichi_map.png';
 
-let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
+let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?per_page=3&context=embed&acf_format=standard');
 if (!response.ok) {
 	throw new Error(`HTTP error! status: ${response.status}`);
 }

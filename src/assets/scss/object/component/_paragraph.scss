@@ -8,4 +8,8 @@
 	.c-paragraph__loose {
 		font-size: $font-line-height-large;
 	}
+
+	@media screen and (max-width: 768px) {
+		font-size: $font-size-small;
+	}
 }
