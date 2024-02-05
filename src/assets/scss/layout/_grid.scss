@@ -17,4 +17,10 @@
 		width: 100%;
 		height: auto;
 	}
+
+	&.l-grid__item--secondary {
+		grid-template-rows: subgrid;
+		grid-row: span 3;
+		gap: 8px;
+	}
 }

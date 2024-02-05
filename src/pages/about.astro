@@ -10,24 +10,138 @@ import Text from '../components/Text.astro';
 
 import Logo from '../assets/images/logo.svg';
 
+import AboutInfoImg01 from '../assets/images/about_info_img_01.jpg';
+import AboutInfoImg02 from '../assets/images/about_info_img_02.jpg';
+import AboutInfoImg03 from '../assets/images/about_info_img_03.jpg';
+import AboutInfoImg04 from '../assets/images/about_info_img_04.jpg';
 import AboutImg01 from '../assets/images/about_img_01.jpg';
 import AboutImg02 from '../assets/images/about_img_02.jpg';
 import AboutImg03 from '../assets/images/about_img_03.jpg';
+
 import AichiMap from '../assets/images/aichi_map.png';
 ---
 
 <BaseLayout>
-	<ContentWrapper>
-		<section class="p-top-info u-margin__top--sp56 u-margin__top144">
-			<Heading type="h2" heading=`<img src=${Logo.src} alt="SHITEN" width="320" height="72" />とは` icon="info" />
-
-			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32">
+	<section class="p-top-info u-margin__top--sp56 u-margin__top144">
+		<ContentWrapper>
+			<Heading type="h2" heading=`<img src=${Logo.src} alt="SHITEN" width="320" height="72" />とは` icon="info" className="u-margin__inline" />
+			<Heading type="h3" heading="いままで知らなかった、まちの視点" className="u-margin__top64 u-margin__top--sp48 u-center" />
+			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32 u-center">
 				暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
 				まちを楽しむには「視点」が必要なのでは？
 				<br />
 				そのような仮説に基づいて、記事を更新したり、みなさんの
 				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
 			</Text>
-		</section>
-	</ContentWrapper>
+		</ContentWrapper>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide swiper-slide__secondary">
+					<Image src={AboutInfoImg02} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide">
+					<Image src={AboutInfoImg03} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide swiper-slide__secondary">
+					<Image src={AboutInfoImg04} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide">
+					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide swiper-slide__secondary">
+					<Image src={AboutInfoImg02} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide">
+					<Image src={AboutInfoImg03} alt="SHITEN" width="372" height="250" />
+				</div>
+				<div class="swiper-slide swiper-slide__secondary">
+					<Image src={AboutInfoImg04} alt="SHITEN" width="372" height="250" />
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="p-top-feeling u-margin__top--sp56 u-margin__top144">
+		<ContentWrapper>
+			<Heading type="h3" heading="たちあげの思い" className="u-margin__top64 u-margin__top--sp48 u-center" />
+			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32 u-center">
+				地元愛知には何がある？<br />
+				名古屋城、八丁味噌などの名古屋めし、三英傑・・・。<br />
+				有名どころだけれども、自分のおすすめなのかは分からない。<br />
+				それ以外にも楽しいと思える場所がないのか？<br />
+				大ナゴヤ大学などの活動を通して気づいたのは「視点」を借りること、<br />
+				いろいろな角度でまちを見てみることが大事だと気づきました。<br />
+				「視点」を持っている人の情報をキャッチしたり、<br />
+				自分が良いと思った場所を発信する場があったりするとよいのでは？<br />
+				と思い、このサイトを立ち上げました。
+			</Text>
+		</ContentWrapper>
+	</section>
+	<section class="p-top-feeling u-margin__top--sp56 u-margin__top144 i-margin__bottom--sp64 u-margin__bottom96">
+		<ContentWrapper>
+			<Heading type="h3" heading="このサイトでできること" className="u-margin__top64 u-margin__top--sp48 u-center" />
+			<div class="l-grid u-margin__top--sp40 u-margin__top80">
+				<div class="l-grid__item l-grid__item--secondary">
+					<Image src={AboutImg01} alt="" width="372" height="240" />
+					<Heading type="h4" heading="「視点」専門家のマガジン" className="u-margin__top16 u-margin__top--sp8 u-center" />
+					<Text lineHeight="loose" className="u-margin__top32 u-margin__top24"
+						>さまざまな人のまちの「視点」について、知ることができます。<br />
+						その人なりの視点を見ることができます。
+					</Text>
+				</div>
+				<div class="l-grid__item l-grid__item--secondary">
+					<Image src={AboutImg02} alt="" width="372" height="240" />
+					<Heading type="h4" heading="SNSシェア" className="u-margin__top16 u-margin__top--sp8 u-center" />
+					<Text lineHeight="loose" className="u-centeu-margin__top32 u-margin__top24"> マガジンを読んで、記事シェアができます。</Text>
+				</div>
+				<div class="l-grid__item l-grid__item--secondary">
+					<Image src={AboutImg03} alt="" width="372" height="240" />
+					<Heading type="h4" heading="SNSで投稿" className="u-margin__top16 u-margin__top--sp8 u-center" />
+					<Text lineHeight="loose" className="u-margin__top24 u-margin__top16"> SNSで投稿された「視点」ハッシュタグをこちらのサイトで見ることができます。発信していきましょう。 </Text>
+				</div>
+			</div>
+		</ContentWrapper>
+	</section>
 </BaseLayout>
+
+<style is:global>
+	.swiper {
+		width: 100%;
+		margin-top: 64px;
+	}
+
+	.swiper-slide {
+		transition-timing-function: linear;
+
+		&.swiper-slide__secondary {
+			margin-top: 64px;
+		}
+	}
+</style>
+
+<script type="module">
+	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+
+	const mySwiper = new Swiper('.swiper', {
+		loop: true,
+		loopedSlides: 4,
+		slidesPerView: 4,
+		speed: 8000,
+		spaceBetween: 120,
+		autoplay: {
+			delay: 0,
+			disableOnInteraction: false,
+			pauseOnMouseEnter: false,
+		},
+		followFinger: false,
+
+		breakpoints: {
+			768: {
+				slidesPerView: 4,
+				spaceBetween: 240,
+			},
+		},
+	});
+</script>
