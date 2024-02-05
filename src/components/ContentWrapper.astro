@@ -1,5 +1,10 @@
 ---
+type Props = {
+	small?: boolean;
+};
+const { small = false } = Astro.props;
 ---
-<div class="l-section-inner">
-  <slot/>
+
+<div class={`l-section-inner ${small ? 'l-section-inner--small' : ''}`}>
+	<slot />
 </div>

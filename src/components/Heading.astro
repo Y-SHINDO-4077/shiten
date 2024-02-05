@@ -32,15 +32,15 @@ const { heading, type, icon = 'ear', className } = Astro.props;
 
 {
 	type === 'h1' ? (
-		<h1 class={`c-heading-h1 ${className}`} set:html={heading}>
+		<h1 class={`c-heading-h1 ${className ? className : ''}`} set:html={heading}>
 			<span class="c-heading-h1__icon">{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}</span>
 		</h1>
 	) : type === 'h2' ? (
-		<h2 class={`c-heading-h2 ${className}`} set:html={heading}>
+		<h2 class={`c-heading-h2 ${className ? className : ''}`} set:html={heading}>
 			<span class="c-heading-h2__icon">{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}</span>
 		</h2>
 	) : (
-		<h3 class={`c-heading-h3 ${className}`} set:html={heading}>
+		<h3 class={`c-heading-h3 ${className ? className : ''}`} set:html={heading}>
 			<span class="c-heading-h3__icon">{IconArray.find(item => item.icon === icon)?.src && <Image src={IconArray.find(item => item.icon === icon)?.src} alt="" />}</span>
 		</h3>
 	)

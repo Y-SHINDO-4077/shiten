@@ -53,13 +53,15 @@ let posts = await response.json();
 		</section>
 		<section class="p-top-info u-margin__top--sp56 u-margin__top144">
 			<Heading type="h2" heading=`<img src=${Logo.src} alt="SHITEN" width="320" height="72" />とは` icon="info" />
-			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32">
-				暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
-				まちを楽しむには「視点」が必要なのでは？
-				<br />
-				そのような仮説に基づいて、記事を更新したり、みなさんの
-				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
-			</Text>
+			<ContentWrapper small>
+				<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32">
+					暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
+					まちを楽しむには「視点」が必要なのでは？
+					<br />
+					そのような仮説に基づいて、記事を更新したり、みなさんの
+					<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
+				</Text>
+			</ContentWrapper>
 			<div class="p-button u-center">
 				<Button url="/about" title="詳しくはこちら" className="u-margin__topsp44  u-margin__top64" />
 			</div>
