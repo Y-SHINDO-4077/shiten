@@ -39,33 +39,31 @@ if (posttitle.match(pattern)) {
 
 <BaseLayout>
 	<ContentWrapper small>
-		<div class="l-flex">
-			<ul class="js-lists p-list"></ul>
-			<article class="p-article-detail">
-				<Heading type="h2" heading="視点の専門家に聞く" icon="ear" className="u-margin__top144 u-margin__top--sp96 u-margin__inline " />
-				<div class="u-margin__top72 u-margin__top--sp48 u-center">
-					<img src={post.thumbnail_url.url} alt="" />
-				</div>
-				<h1 class="c-heading-h1 u-margin__inline u-margin__top32 u-margin__top--sp16">
-					{
-						posttitleArray.map(title => {
-							return (
-								<Fragment>
-									{title}
-									<br />
-								</Fragment>
-							);
-						})
-					}
-				</h1>
+		<ul class="js-lists p-list"></ul>
+		<article class="p-article-detail">
+			<Heading type="h2" heading="視点の専門家に聞く" icon="ear" className="u-margin__top144 u-margin__top--sp96 u-margin__inline " />
+			<div class="u-margin__top72 u-margin__top--sp48 u-center">
+				<img src={post.thumbnail_url.url} alt="" />
+			</div>
+			<h1 class="c-heading-h1 u-margin__inline u-margin__top32 u-margin__top--sp16">
+				{
+					posttitleArray.map(title => {
+						return (
+							<Fragment>
+								{title}
+								<br />
+							</Fragment>
+						);
+					})
+				}
+			</h1>
 
-				<div class="u-right u-margin__top24 u-margin__top--sp16">
-					<FormattedDate date={articleDate} />
-				</div>
-				<Profile name={post.acf.name} role={post.acf.role} image={post.acf.eyecatch} description={post.acf.description} />
-				<Fragment set:html={renderedContent} />
-			</article>
-		</div>
+			<div class="u-right u-margin__top24 u-margin__top--sp16">
+				<FormattedDate date={articleDate} />
+			</div>
+			<Profile name={post.acf.name} role={post.acf.role} image={post.acf.eyecatch} description={post.acf.description} />
+			<Fragment set:html={renderedContent} />
+		</article>
 	</ContentWrapper>
 </BaseLayout>
 
@@ -437,7 +435,7 @@ if (posttitle.match(pattern)) {
 
 	@container (max-width:240px) {
 		.p-list {
-			display: none;
+			display: none !important;
 		}
 	}
 </style>
