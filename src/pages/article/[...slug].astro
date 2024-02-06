@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentWrapper from '../../components/ContentWrapper.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Heading from '../../components/Heading.astro';
+import Text from '../../components/Text.astro';
 import Profile from '../../components/Profile.astro';
 const { slug } = Astro.params;
 let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
@@ -39,7 +40,10 @@ if (posttitle.match(pattern)) {
 
 <BaseLayout>
 	<ContentWrapper small>
-		<ul class="js-lists p-list"></ul>
+		<aside class="p-aside">
+			<Text className="u-margin__bottom8">目次</Text>
+			<ul class="js-lists p-aside__list"></ul>
+		</aside>
 		<article class="p-article-detail">
 			<Heading type="h2" heading="視点の専門家に聞く" icon="ear" className="u-margin__top144 u-margin__top--sp96 u-margin__inline " />
 			<div class="u-margin__top72 u-margin__top--sp48 u-center">
@@ -425,34 +429,60 @@ if (posttitle.match(pattern)) {
 		border-width: 1px;
 	}
 
-	.p-list {
+	.p-aside {
 		position: fixed;
 		top: 40vh;
 		left: 20px;
-		width: 240px;
+		width: 200px;
 		height: 100vh;
+		margin-inline: 16px;
+
+		.p-aside__list {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			li {
+				margin-left: 16px;
+				list-style: disc;
+
+				a {
+					@media screen and (min-width: 769px) {
+						&:hover {
+							text-decoration: underline;
+							opacity: 0.7;
+						}
+					}
+				}
+			}
+
+			.p-aside__listHeading3 {
+				margin-left: 16px;
+			}
+		}
 	}
 
 	@container (max-width:240px) {
-		.p-list {
+		.p-aside {
 			display: none !important;
 		}
 	}
 </style>
 
 <script>
-	// ページの読み込みが完了したら実行
 	window.addEventListener('load', function () {
 		const elements = document.querySelectorAll('.wp-block-heading');
 		const ul = document.querySelector('.js-lists');
 		let h2Cnt = 1;
 		for (let i = 0; i < elements.length; i++) {
 			const element = elements[i];
+			let idValue = 'heading__' + [i + 1];
+			element.setAttribute('id', idValue);
 			if (element.tagName == 'H2') {
 				const li = document.createElement('li');
 				const aTag = document.createElement('a');
 				const nestUl = document.createElement('ul');
-				nestUl.classList = `ul${h2Cnt}`;
+				nestUl.classList = `p-aside__listHeading2 p-aside__listHeading2--${h2Cnt} `;
 				aTag.textContent = element.textContent;
 				aTag.href = '#' + element.id;
 				ul.appendChild(li);
@@ -464,9 +494,10 @@ if (posttitle.match(pattern)) {
 				const aTag = document.createElement('a');
 				aTag.textContent = element.textContent;
 				aTag.href = '#' + element.id;
-				const nestUl = document.querySelector(`.ul${h2Cnt - 1}`);
+				const nestUl = document.querySelector(`.p-aside__listHeading2.p-aside__listHeading2--${h2Cnt - 1}`);
 				nestUl.appendChild(li);
 				li.appendChild(aTag);
+				li.classList = 'p-aside__listHeading3';
 			}
 		}
 	});
