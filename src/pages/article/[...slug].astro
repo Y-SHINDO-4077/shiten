@@ -466,37 +466,35 @@ if (posttitle.match(pattern)) {
 </style>
 
 <script>
-	window.addEventListener('load', function () {
-		const elements = document.querySelectorAll('.wp-block-heading');
-		const ul = document.querySelector('.js-lists');
-		let h2Cnt = 1;
-		for (let i = 0; i < elements.length; i++) {
-			const element = elements[i];
-			let idValue = 'heading__' + [i + 1];
-			element.setAttribute('id', idValue);
-			if (element.tagName == 'H2') {
-				const li = document.createElement('li');
-				const aTag = document.createElement('a');
-				const nestUl = document.createElement('ul');
-				nestUl.classList = `p-aside__listHeading2 p-aside__listHeading2--${h2Cnt} `;
-				aTag.textContent = element.textContent;
-				aTag.href = '#' + element.id;
-				ul.appendChild(li);
-				li.appendChild(aTag);
-				li.appendChild(nestUl);
-				h2Cnt++;
-			} else {
-				const li = document.createElement('li');
-				const aTag = document.createElement('a');
-				aTag.textContent = element.textContent;
-				aTag.href = '#' + element.id;
-				const nestUl = document.querySelector(`.p-aside__listHeading2.p-aside__listHeading2--${h2Cnt - 1}`);
-				nestUl.appendChild(li);
-				li.appendChild(aTag);
-				li.classList = 'p-aside__listHeading3';
-			}
+	const elements = document.querySelectorAll('.wp-block-heading');
+	const ul = document.querySelector('.js-lists');
+	let h2Cnt = 1;
+	for (let i = 0; i < elements.length; i++) {
+		const element = elements[i];
+		let idValue = 'heading__' + [i + 1];
+		element.setAttribute('id', idValue);
+		if (element.tagName == 'H2') {
+			const li = document.createElement('li');
+			const aTag = document.createElement('a');
+			const nestUl = document.createElement('ul');
+			nestUl.classList = `p-aside__listHeading2 p-aside__listHeading2--${h2Cnt} `;
+			aTag.textContent = element.textContent;
+			aTag.href = '#' + element.id;
+			ul.appendChild(li);
+			li.appendChild(aTag);
+			li.appendChild(nestUl);
+			h2Cnt++;
+		} else {
+			const li = document.createElement('li');
+			const aTag = document.createElement('a');
+			aTag.textContent = element.textContent;
+			aTag.href = '#' + element.id;
+			const nestUl = document.querySelector(`.p-aside__listHeading2.p-aside__listHeading2--${h2Cnt - 1}`);
+			nestUl.appendChild(li);
+			li.appendChild(aTag);
+			li.classList = 'p-aside__listHeading3';
 		}
-	});
+	}
 
 	// ページ内リンクのスムーススクロール
 </script>
