@@ -9,6 +9,15 @@
 	}
 
 	&.l-section-inner--small {
+		display: flex;
+		width: calc(100% - 300px);
 		max-width: 940px;
+		margin: inherit;
+		margin-right: 100px;
+		margin-left: auto;
+
+		@media screen and (max-width: 1024px) {
+			width: calc(100% - 80px);
+		}
 	}
 }
