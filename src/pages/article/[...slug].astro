@@ -3,6 +3,8 @@ export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentWrapper from '../../components/ContentWrapper.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Heading from '../../components/Heading.astro';
+import Profile from '../../components/Profile.astro';
 const { slug } = Astro.params;
 let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
 if (!response.ok) {
@@ -25,27 +27,45 @@ export async function getStaticPaths() {
 }
 
 const articleDate = new Date(post.date);
+let posttitle = post.title.rendered;
+let pattern = ' ';
+let posttitleArray = [];
+if (posttitle.match(pattern)) {
+	posttitleArray = posttitle.split(pattern);
+} else {
+	posttitleArray = [posttitle];
+}
 ---
 
 <BaseLayout>
 	<ContentWrapper small>
-		<article>
-			<img src={post._embedded['wp:featuredmedia'][0].source_url} alt={post.title.rendered} />
-			<h1>{post.title.rendered}</h1>
+		<div class="l-flex">
+			<ul class="js-lists p-list"></ul>
+			<article class="p-article-detail">
+				<Heading type="h2" heading="視点の専門家に聞く" icon="ear" className="u-margin__top144 u-margin__top--sp96 u-margin__inline " />
+				<div class="u-margin__top72 u-margin__top--sp48 u-center">
+					<img src={post.thumbnail_url.url} alt="" />
+				</div>
+				<h1 class="c-heading-h1 u-margin__inline u-margin__top32 u-margin__top--sp16">
+					{
+						posttitleArray.map(title => {
+							return (
+								<Fragment>
+									{title}
+									<br />
+								</Fragment>
+							);
+						})
+					}
+				</h1>
 
-			<FormattedDate date={articleDate} />
-			<div class="profile">
-				<div class="">
-					<img src={post.acf.eyecatch} alt="profile" />
+				<div class="u-right u-margin__top24 u-margin__top--sp16">
+					<FormattedDate date={articleDate} />
 				</div>
-				<div>
-					<p>{post.acf.role}</p>
-					<p>{post.acf.name}<span>さん</span></p>
-					<p>{post.acf.description}</p>
-				</div>
-			</div>
-			<Fragment set:html={renderedContent} />
-		</article>
+				<Profile name={post.acf.name} role={post.acf.role} image={post.acf.eyecatch} description={post.acf.description} />
+				<Fragment set:html={renderedContent} />
+			</article>
+		</div>
 	</ContentWrapper>
 </BaseLayout>
 
@@ -406,4 +426,52 @@ const articleDate = new Date(post.date);
 	.wp-block-quote {
 		border-width: 1px;
 	}
+
+	.p-list {
+		position: fixed;
+		top: 40vh;
+		left: 20px;
+		width: 240px;
+		height: 100vh;
+	}
+
+	@container (max-width:240px) {
+		.p-list {
+			display: none;
+		}
+	}
 </style>
+
+<script>
+	// ページの読み込みが完了したら実行
+	window.addEventListener('load', function () {
+		const elements = document.querySelectorAll('.wp-block-heading');
+		const ul = document.querySelector('.js-lists');
+		let h2Cnt = 1;
+		for (let i = 0; i < elements.length; i++) {
+			const element = elements[i];
+			if (element.tagName == 'H2') {
+				const li = document.createElement('li');
+				const aTag = document.createElement('a');
+				const nestUl = document.createElement('ul');
+				nestUl.classList = `ul${h2Cnt}`;
+				aTag.textContent = element.textContent;
+				aTag.href = '#' + element.id;
+				ul.appendChild(li);
+				li.appendChild(aTag);
+				li.appendChild(nestUl);
+				h2Cnt++;
+			} else {
+				const li = document.createElement('li');
+				const aTag = document.createElement('a');
+				aTag.textContent = element.textContent;
+				aTag.href = '#' + element.id;
+				const nestUl = document.querySelector(`.ul${h2Cnt - 1}`);
+				nestUl.appendChild(li);
+				li.appendChild(aTag);
+			}
+		}
+	});
+
+	// ページ内リンクのスムーススクロール
+</script>

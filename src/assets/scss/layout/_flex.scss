@@ -1,0 +1,27 @@
+@use '../foundation/_base.scss' as *;
+
+.l-flex {
+	display: flex;
+
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+	}
+}
+
+.l-flex__item {
+	display: grid;
+
+	& > img {
+		width: 100%;
+		height: auto;
+	}
+
+	&.l-flex__item--left {
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+
+	&.l-flex__item--right {
+		flex-shrink: 1;
+	}
+}

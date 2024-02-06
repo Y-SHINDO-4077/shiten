@@ -1,0 +1,30 @@
+---
+import { date } from 'astro/zod';
+import { Image } from 'astro:assets';
+
+type Props = {
+	name: string;
+	image: string;
+	role: string;
+	description: string;
+};
+const { name, image, role, description } = Astro.props;
+---
+
+<div class="p-profile u-margin__top64 u-margin__top--sp32">
+	<div class="l-flex p-profile__wrap">
+		<div class="l-flex__item l-flex__item--left p-profile__left">
+			<div class="p-profile__image">
+				<img src={image} alt="" />
+			</div>
+		</div>
+		<div class="l-flex__item l-flex__item--right">
+			<p class="p-profile__role">{role}</p>
+			<h3 class="p-profile__title">
+				{name}
+				<span class="p-profile__compellation">さん</span>
+			</h3>
+			<Fragment class="p-profile__description" set:html={description} />
+		</div>
+	</div>
+</div>

@@ -16,8 +16,13 @@
 	margin-left: 24px;
 
 	@media screen and (max-width: 768px) {
+		width: 60vw;
 		margin-top: 16px;
 		margin-left: 4vw;
+	}
+
+	img {
+		width: 100%;
 	}
 }
 
@@ -46,12 +51,24 @@
 	text-orientation: upright;
 
 	@media screen and (max-width: 768px) {
+		display: flex;
 		width: 100px;
 		height: 50px;
+		margin-top: 40px;
+		margin-right: 94px;
+		font-size: 24px;
+		letter-spacing: 0;
+		border-radius: 50vh;
+		writing-mode: horizontal-tb;
+		text-orientation: inherit;
 	}
 
 	.p-hamburger__menu {
 		margin-top: 40px;
+
+		@media screen and (max-width: 768px) {
+			margin-top: 0;
+		}
 	}
 
 	.p-hamburger__bar {

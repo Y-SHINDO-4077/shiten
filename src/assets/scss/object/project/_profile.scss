@@ -1,0 +1,39 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-profile {
+	padding: 32px 64px;
+	border: 1px solid #000;
+
+	.p-profile__wrap {
+		gap: 24px;
+	}
+
+	.p-profile__left {
+		flex-basis: 240px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.p-profile__right {
+		flex-basis: 505px;
+	}
+
+	.p-profile__role {
+		font-size: $font-size-large;
+	}
+
+	.p-profile__title {
+		font-size: $font-size-xx-large;
+		font-weight: 900;
+
+		.p-profile__compellation {
+			font-size: $font-size-large;
+		}
+	}
+
+	.p-profile__description {
+		font-size: $font-size-regular;
+	}
+}

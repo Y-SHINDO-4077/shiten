@@ -10,6 +10,7 @@
 @use 'layout/_main.scss';
 @use 'layout/_footer.scss';
 @use 'layout/_grid.scss';
+@use 'layout/_flex.scss';
 
 /* object/component */
 @use 'object/component/_button.scss';
@@ -19,6 +20,7 @@
 /* object/project */
 @use 'object/project/_card.scss';
 @use 'object/project/_map.scss';
+@use 'object/project/_profile.scss';
 
 /* object/utility */
 @use 'object/utility/_spacing.scss';
