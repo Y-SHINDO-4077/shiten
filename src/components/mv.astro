@@ -157,12 +157,14 @@ let posts = await response.json();
 		}
 
 		img {
-			width: 100%;
-			max-width: 460px;
-			height: 100%;
-			max-height: 460px;
-			margin-top: 50px;
-			margin-left: 50px;
+			position: absolute;
+			top: 25px;
+			left: 25px;
+			z-index: -1;
+			width: calc(100% - 50px);
+			max-width: 440px;
+			height: calc(100% - 50px);
+			max-height: 440px;
 			border-radius: 50%;
 			object-fit: cover;
 			object-position: center;
