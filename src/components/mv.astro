@@ -158,16 +158,30 @@ let posts = await response.json();
 
 		img {
 			position: absolute;
-			top: 25px;
-			left: 25px;
+			top: 5vh;
+			left: 2vw;
 			z-index: -1;
-			width: calc(100% - 50px);
+			width: calc(100% - 40vh);
 			max-width: 440px;
-			height: calc(100% - 50px);
 			max-height: 440px;
+			aspect-ratio: 1 / 1;
 			border-radius: 50%;
 			object-fit: cover;
 			object-position: center;
+
+			@media only screen and (max-width: 1024px) {
+				top: 4vh;
+				left: 2vw;
+				width: calc(100% - 36vh);
+				max-width: 550px;
+				max-height: 550px;
+			}
+
+			@media only screen and (max-width: 768px) {
+				top: 6vh;
+				left: 4vw;
+				width: calc(100% - 40vh);
+			}
 		}
 	}
 
