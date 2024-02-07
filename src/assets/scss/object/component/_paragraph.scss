@@ -5,8 +5,8 @@
 	font-weight: $font-weight-medium;
 	line-height: 1.5;
 
-	.c-paragraph__loose {
-		font-size: $font-line-height-large;
+	&.c-paragraph--loose {
+		line-height: $font-line-height-large;
 	}
 
 	@media screen and (max-width: 768px) {
