@@ -6,6 +6,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Heading from '../../components/Heading.astro';
 import Text from '../../components/Text.astro';
 import Profile from '../../components/Profile.astro';
+import Share from '../../components/Share.astro';
 const { slug } = Astro.params;
 let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
 if (!response.ok) {
@@ -41,8 +42,10 @@ if (posttitle.match(pattern)) {
 <BaseLayout>
 	<ContentWrapper small>
 		<aside class="p-aside">
-			<Text className="u-margin__bottom8">目次</Text>
-			<ul class="js-lists p-aside__list"></ul>
+			<div class="p-aside__wrap">
+				<Text className="u-margin__bottom8">目次</Text>
+				<ul class="js-lists p-aside__list"></ul>
+			</div>
 		</aside>
 		<article class="p-article-detail">
 			<Heading type="h2" heading="視点の専門家に聞く" icon="ear" className="u-margin__top144 u-margin__top--sp96 u-margin__inline " />
@@ -69,6 +72,7 @@ if (posttitle.match(pattern)) {
 			<Fragment set:html={renderedContent} />
 		</article>
 	</ContentWrapper>
+	<Share url={`https://dooshin.net/shiten/article/${slug}`} />
 </BaseLayout>
 
 <style is:global>
@@ -427,12 +431,19 @@ if (posttitle.match(pattern)) {
 	}
 
 	.p-aside {
-		position: fixed;
-		top: 40vh;
-		left: 20px;
+		position: sticky;
+		top: 0;
+		left: 0;
 		width: 200px;
 		height: 100vh;
 		margin-inline: 16px;
+
+		.p-aside__wrap {
+			position: absolute;
+			bottom: 10%;
+			left: -240px;
+			width: 200px;
+		}
 
 		.p-aside__list {
 			display: flex;
