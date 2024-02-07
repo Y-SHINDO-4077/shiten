@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import '../assets/scss/global.scss';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageTop from '../assets/images/PAGETOP.svg';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -50,6 +52,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<main class="l-main">
 			<slot />
 		</main>
+		<div class="c-pagetop">
+			<a href="" class="c-pagetop__link">
+				<Image src={PageTop} alt="ページトップへ" />
+			</a>
+		</div>
 		<Footer />
 	</body>
 </html>
