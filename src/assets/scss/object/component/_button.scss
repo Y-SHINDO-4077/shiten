@@ -15,6 +15,12 @@
 	transition: transform 0.3s ease-in;
 	transform: translateX(0%);
 
+	@media screen and (max-width: 768px) {
+		min-width: 48px;
+		padding: 16px 24px;
+		font-size: $font-size-large;
+	}
+
 	&:hover {
 		.c-button__arrow {
 			transition: transform 0.3s ease-out;

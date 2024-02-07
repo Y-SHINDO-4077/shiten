@@ -34,6 +34,32 @@
 		top: 50%;
 		right: -64px;
 		transform: translateY(-50%);
+
+		@media screen and (max-width: 768px) {
+			img {
+				width: 50%;
+			}
+		}
+	}
+
+	.c-shiten__logo {
+		max-width: 60%;
+	}
+
+	&.c-heading-h1__icon--info,
+	&.c-heading-h2__icon--info {
+		@media screen and (max-width: 768px) {
+			.c-heading-h1__icon,
+			.c-heading-h2__icon {
+				right: -8px;
+			}
+
+			&::after {
+				bottom: 10px;
+				left: 140px;
+				width: calc(100% - 16px);
+			}
+		}
 	}
 }
 
