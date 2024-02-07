@@ -50,18 +50,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 	</head>
 	<body>
+		<div id="pagetop"></div>
 		<Header title={SITE_TITLE} />
 		<main class="l-main">
 			<slot />
 		</main>
 		<div class="c-pagetop">
-			<a href="#" class="c-pagetop__link">
+			<a href="#pagetop" class="c-pagetop__link">
 				<Image src={PageTop} alt="ページトップへ" />
 			</a>
 		</div>
 		<Footer />
 
 		<script>
+			//アンカースクロールアニメーション
 			const gap = 100;
 			const anchorElements = document.querySelectorAll('a[href^="#"]');
 			if (anchorElements) {
@@ -75,6 +77,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							behavior: 'smooth',
 						});
 					});
+				});
+			}
+
+			//ページトップボタン
+			const pagetop = document.querySelector('.c-pagetop');
+			if (pagetop) {
+				window.addEventListener('scroll', () => {
+					if (window.scrollY > 100) {
+						pagetop.classList.add('is-active');
+					} else {
+						pagetop.classList.remove('is-active');
+					}
 				});
 			}
 		</script>
