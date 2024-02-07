@@ -79,11 +79,11 @@ import AichiMap from '../assets/images/aichi_map.png';
 			</Text>
 		</ContentWrapper>
 	</section>
-	<section class="p-top-feeling u-margin__top--sp56 u-margin__top144 i-margin__bottom--sp64 u-margin__bottom96">
+	<section class="p-ability u-margin__top--sp56 u-margin__top144 i-margin__bottom--sp64 u-margin__bottom96">
 		<ContentWrapper>
 			<Heading type="h3" heading="このサイトでできること" className="u-margin__top64 u-margin__top--sp48 u-center" />
 			<div class="l-grid u-margin__top--sp40 u-margin__top80">
-				<div class="l-grid__item l-grid__item--secondary">
+				<div class="l-grid__item l-grid__item--secondary p-ability__list">
 					<Image src={AboutImg01} alt="" width="372" height="240" />
 					<Heading type="h4" heading="「視点」専門家のマガジン" className="u-margin__top16 u-margin__top--sp8 u-center" />
 					<Text lineHeight="loose" className="u-margin__top32 u-margin__top24"
@@ -91,12 +91,12 @@ import AichiMap from '../assets/images/aichi_map.png';
 						その人なりの視点を見ることができます。
 					</Text>
 				</div>
-				<div class="l-grid__item l-grid__item--secondary">
+				<div class="l-grid__item l-grid__item--secondary p-ability__list">
 					<Image src={AboutImg02} alt="" width="372" height="240" />
 					<Heading type="h4" heading="SNSシェア" className="u-margin__top16 u-margin__top--sp8 u-center" />
 					<Text lineHeight="loose" className="u-centeu-margin__top32 u-margin__top24"> マガジンを読んで、記事シェアができます。</Text>
 				</div>
-				<div class="l-grid__item l-grid__item--secondary">
+				<div class="l-grid__item l-grid__item--secondary p-ability__list">
 					<Image src={AboutImg03} alt="" width="372" height="240" />
 					<Heading type="h4" heading="SNSで投稿" className="u-margin__top16 u-margin__top--sp8 u-center" />
 					<Text lineHeight="loose" className="u-margin__top24 u-margin__top16"> SNSで投稿された「視点」ハッシュタグをこちらのサイトで見ることができます。発信していきましょう。 </Text>
@@ -107,6 +107,8 @@ import AichiMap from '../assets/images/aichi_map.png';
 </BaseLayout>
 
 <style is:global>
+	@use '../../assets/css/foundation/_base.scss';
+
 	.swiper {
 		width: 100%;
 		margin-top: 64px;
@@ -117,6 +119,26 @@ import AichiMap from '../assets/images/aichi_map.png';
 
 		&.swiper-slide__secondary {
 			margin-top: 64px;
+		}
+	}
+
+	.p-ability {
+		counter-reset: number 0;
+	}
+
+	.p-ability__list {
+		position: relative;
+		counter-increment: number 1;
+
+		&::before {
+			position: absolute;
+			top: -40px;
+			left: -40px;
+			font-family: 'poppins, sans-serif';
+			font-size: 64px;
+			font-weight: 900;
+			letter-spacing: -0.1em;
+			content: '0 ' counter(number) ' ';
 		}
 	}
 </style>

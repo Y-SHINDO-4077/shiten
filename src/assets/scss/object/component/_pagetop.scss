@@ -1,17 +1,23 @@
 @use '../../foundation/_base.scss' as *;
 
 .c-pagetop {
-	position: fixed;
-	right: 90px;
-	bottom: 240px;
-	z-index: 1;
+	position: sticky;
+	right: 0;
+	bottom: 0;
 
-	@media screen and (max-width: 768px) {
-		right: 20px;
-		bottom: 20px;
-	}
+	.c-pagetop__link {
+		position: absolute;
+		right: 100px;
+		bottom: 24px;
+		display: block;
 
-	&:hover {
-		transform: scale(1.1);
+		@media screen and (max-width: 768px) {
+			right: 20px;
+			bottom: 20px;
+		}
+
+		&:hover {
+			transform: scale(1.1);
+		}
 	}
 }
