@@ -24,12 +24,29 @@ const { url } = Astro.props;
 			<a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} target="_blank" rel="noopener noreferrer" class="p-share__icon">
 				<Image src={Facebook} alt="Facebookでシェア" />
 			</a>
-			<a href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}`} target="_blank" rel="noopener noreferrer" class="p-share__icon">
+
+			<a href={`https://social-plugins.line.me/lineit/share?url=${url}`} target="_blank" rel="noopener noreferrer" class="p-share__icon">
 				<Image src={Line} alt="LINEでシェア" />
 			</a>
-			<a href={`https://wa.me/?text=${url}`} target="_blank" rel="noopener noreferrer" class="p-share__icon">
+			<a href="javascript:void(0);" rel="noopener noreferrer" class="p-share__icon p-share__url">
 				<Image src={UrlLogo} alt="URLをコピー" />
 			</a>
 		</div>
 	</ContentWrapper>
 </section>
+<script>
+	//URLをコピーするためのjs
+
+	//.p-share__urlをクリックしてurlをコピー
+
+	function copyUrl() {
+		const element = document.createElement('input');
+		element.value = location.href;
+		document.body.appendChild(element);
+		element.select();
+		document.execCommand('copy');
+		document.body.removeChild(element);
+		alert('URLをコピーしました');
+	}
+	document.querySelector('.p-share__url').addEventListener('click', copyUrl);
+</script>
