@@ -137,8 +137,14 @@ import AichiMap from '../assets/images/aichi_map.png';
 			font-family: 'poppins, sans-serif';
 			font-size: 64px;
 			font-weight: 900;
-			letter-spacing: -0.1em;
+			letter-spacing: -0.2em;
 			content: '0 ' counter(number) ' ';
+
+			@media screen and (max-width: 768px) {
+				top: -16px;
+				left: -16px;
+				font-size: 40px;
+			}
 		}
 	}
 </style>

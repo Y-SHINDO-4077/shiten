@@ -50,6 +50,10 @@
 	writing-mode: vertical-rl;
 	text-orientation: upright;
 
+	@media screen and (max-width: 1024px) {
+		width: 60px;
+	}
+
 	@media screen and (max-width: 768px) {
 		display: flex;
 		gap: 8px;
@@ -119,6 +123,10 @@
 	width: calc(100vw - 80px);
 	height: 100svh;
 	background: #f7ef61;
+
+	@media screen and (max-width: 1024px) {
+		width: calc(100vw - 40px);
+	}
 
 	@media screen and (max-width: 768px) {
 		gap: 40px;
