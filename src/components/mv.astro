@@ -137,6 +137,10 @@ let posts = await response.json();
 		max-width: 650px;
 		margin-block: 2svh 10svh;
 		margin-left: auto;
+
+		@media screen and (max-width: 768px) {
+			margin-block: 20svh auto;
+		}
 	}
 
 	.slide-media {
@@ -178,9 +182,9 @@ let posts = await response.json();
 			}
 
 			@media only screen and (max-width: 768px) {
-				top: 6vh;
-				left: 4vw;
-				width: calc(100% - 40vh);
+				top: 5vh;
+				left: 5vw;
+				width: calc(100% - 20vw);
 			}
 		}
 	}
