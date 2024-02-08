@@ -7,6 +7,7 @@ import Heading from '../../components/Heading.astro';
 import Text from '../../components/Text.astro';
 import Profile from '../../components/Profile.astro';
 import Share from '../../components/Share.astro';
+import Card from '../../components/Card.astro';
 const { slug } = Astro.params;
 let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
 if (!response.ok) {
@@ -37,6 +38,12 @@ if (posttitle.match(pattern)) {
 } else {
 	posttitleArray = [posttitle];
 }
+
+let Allresponse = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard&per_page=3');
+if (!Allresponse.ok) {
+	throw new Error(`HTTP error! status: ${response.status}`);
+}
+let Allposts = await Allresponse.json();
 ---
 
 <BaseLayout>
@@ -72,7 +79,29 @@ if (posttitle.match(pattern)) {
 			<Fragment set:html={renderedContent} />
 		</article>
 	</ContentWrapper>
-	<Share url={`https://dooshin.net/shiten/article/${slug}`} />
+	<ContentWrapper>
+		<Share url={`https://dooshin.net/shiten/article/${slug}`} />
+		<ul class="l-grid u-margin__top72">
+			{
+				Allposts.map(p => (
+					<>
+						<li class="i-grid__item">
+							<Card
+								title={p.title.rendered}
+								url={`/article/${p.slug}`}
+								image={p.thumbnail_url ? p.thumbnail_url.url : { CardImg }}
+								role={`${p.acf.role}`}
+								description={p.excerpt.rendered.slice(0, 96)}
+								date={p.date}
+								title={p.acf.name}
+							/>
+						</li>
+					</>
+				))
+			}
+		</ul>
+		<Share url={`https://dooshin.net/shiten/article/${slug}`} />
+	</ContentWrapper>
 </BaseLayout>
 
 <style is:global>

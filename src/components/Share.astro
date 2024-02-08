@@ -16,8 +16,8 @@ const { url } = Astro.props;
 
 <section class="p-share">
 	<ContentWrapper>
-		<Heading type="h2" heading="記事をシェア" />
-		<div class="p-share__icons">
+		<Heading type="h3" heading="記事をシェア" className="u-center" />
+		<div class="p-share__icons u-margin__top64 u-margin__top--sp32">
 			<a href={`https://twitter.com/intent/tweet?url=${url}`} target="_blank" rel="noopener noreferrer" class="p-share__icon">
 				<Image src={X} alt="X(旧Twitter)でシェア" />
 			</a>

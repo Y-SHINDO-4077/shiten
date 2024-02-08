@@ -7,6 +7,7 @@ import Heading from '../../components/Heading.astro';
 import Text from '../../components/Text.astro';
 import Card from '../../components/Card.astro';
 import CardImg from '../../assets/images/card_img.jpg';
+import { p } from 'shikiji-core/dist/chunk-types.mjs';
 
 let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
 if (!response.ok) {
@@ -30,7 +31,7 @@ let posts = await response.json();
 									url={`/article/${post.slug}`}
 									image={post.thumbnail_url ? post.thumbnail_url.url : { CardImg }}
 									role={`${post.acf.role}`}
-									description={post.excerpt.rendered}
+									description={post.excerpt.rendered.slice(0, 96)}
 									date={post.date}
 									title={post.acf.name}
 								/>

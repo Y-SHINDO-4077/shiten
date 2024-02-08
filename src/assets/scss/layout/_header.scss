@@ -48,6 +48,7 @@
 
 .p-hamburger {
 	display: inline-flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	width: 80px;
@@ -56,10 +57,7 @@
 	font-size: 36px;
 	font-weight: 700;
 	line-height: 1;
-	letter-spacing: -1.5rem;
 	background-color: #f7ef61;
-	writing-mode: vertical-rl;
-	text-orientation: upright;
 
 	@media screen and (max-width: 1024px) {
 		width: 60px;
@@ -67,6 +65,7 @@
 
 	@media screen and (max-width: 768px) {
 		display: flex;
+		flex-direction: row;
 		gap: 8px;
 		align-items: center;
 		width: 120px;
@@ -76,23 +75,27 @@
 		font-size: 20px;
 		letter-spacing: 0;
 		border-radius: 50vh;
-		writing-mode: horizontal-tb;
-		text-orientation: inherit;
 	}
 
 	.p-hamburger__menu {
 		margin-top: 40px;
 		line-height: 1;
+		writing-mode: vertical-rl;
+		text-orientation: upright;
 
 		@media screen and (max-width: 768px) {
 			padding-top: 6px;
 			margin-top: 0;
+			writing-mode: horizontal-tb;
+			text-orientation: inherit;
 		}
 	}
 
 	.p-hamburger__bars {
 		display: flex;
+		flex-direction: column;
 		width: 24px;
+		height: 24px;
 
 		@media screen and (max-width: 768px) {
 			display: block;

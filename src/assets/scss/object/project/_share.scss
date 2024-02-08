@@ -1,0 +1,28 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-share {
+	.p-share__icons {
+		display: flex;
+		gap: 64px;
+		align-items: center;
+		justify-content: center;
+
+		@media screen and (max-width: 768px) {
+			gap: 4vw;
+		}
+	}
+
+	.p-share__icon {
+		@media screen and (min-width: 769px) {
+			transition: opacity 0.3s ease-out;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+}

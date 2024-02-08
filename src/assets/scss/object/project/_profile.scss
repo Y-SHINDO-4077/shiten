@@ -4,6 +4,10 @@
 	padding: 32px 64px;
 	border: 1px solid #000;
 
+	@media screen and (max-width: 768px) {
+		padding: 16px;
+	}
+
 	.p-profile__wrap {
 		gap: 24px;
 	}
