@@ -17,14 +17,12 @@ import AboutInfoImg04 from '../assets/images/about_info_img_04.jpg';
 import AboutImg01 from '../assets/images/about_img_01.jpg';
 import AboutImg02 from '../assets/images/about_img_02.jpg';
 import AboutImg03 from '../assets/images/about_img_03.jpg';
-
-import AichiMap from '../assets/images/aichi_map.png';
 ---
 
 <BaseLayout>
-	<section class="p-top-info u-margin__top--sp56 u-margin__top144">
+	<section class="p-top-info u-margin__top144">
 		<ContentWrapper>
-			<Heading type="h2" heading=`<img src=${Logo.src} alt="SHITEN" width="320" height="72" />とは` icon="info" className="u-margin__inline" />
+			<Heading type="h2" heading=`<img src=${Logo.src} alt="SHITEN" width="320" class="c-shiten__logo" height="72" />とは` icon="info" className="u-margin__inline c-heading-h2__icon--info" />
 			<Heading type="h3" heading="いままで知らなかった、まちの視点" className="u-margin__top64 u-margin__top--sp48 u-center" />
 			<Text lineHeight="loose" className="u-margin__top--sp24 u-margin__top32 u-center">
 				暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
@@ -141,8 +139,8 @@ import AichiMap from '../assets/images/aichi_map.png';
 			content: '0 ' counter(number) ' ';
 
 			@media screen and (max-width: 768px) {
-				top: -16px;
-				left: -16px;
+				top: -20px;
+				left: -20px;
 				font-size: 40px;
 			}
 		}

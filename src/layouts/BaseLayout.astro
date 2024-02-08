@@ -82,12 +82,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			//ページトップボタン
 			const pagetop = document.querySelector('.c-pagetop');
+			const header = document.querySelector('.p-header');
 			if (pagetop) {
 				window.addEventListener('scroll', () => {
 					if (window.scrollY > 100) {
 						pagetop.classList.add('is-active');
+						header.classList.add('is-active');
 					} else {
 						pagetop.classList.remove('is-active');
+						header.classList.remove('is-active');
 					}
 				});
 			}
