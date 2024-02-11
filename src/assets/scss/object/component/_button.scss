@@ -27,6 +27,25 @@
 			transform: translateX(10%);
 		}
 	}
+
+	&.c-button__reverse {
+		flex-direction: row-reverse;
+		gap: 48px;
+		padding: 20px 80px;
+		background-color: transparent;
+		border: 1px solid $yellow;
+
+		.c-button__arrow {
+			transform: rotate(180deg);
+		}
+
+		&:hover {
+			.c-button__arrow {
+				transition: transform 0.3s ease-out;
+				transform: rotate(180deg) translateX(10%);
+			}
+		}
+	}
 }
 
 .c-button__arrow {

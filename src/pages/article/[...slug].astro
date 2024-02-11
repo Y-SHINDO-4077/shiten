@@ -8,6 +8,7 @@ import Text from '../../components/Text.astro';
 import Profile from '../../components/Profile.astro';
 import Share from '../../components/Share.astro';
 import Card from '../../components/Card.astro';
+import Button from '../../components/Button.astro';
 const { slug } = Astro.params;
 let response = await fetch(`https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?_embed&acf_format=standard&slug=${slug}`);
 if (!response.ok) {
@@ -81,6 +82,8 @@ let Allposts = await Allresponse.json();
 	</ContentWrapper>
 	<ContentWrapper>
 		<Share url={`https://dooshin.net/shiten/article/${slug}`} />
+		<Share url={`https://dooshin.net/shiten/article/${slug}`} />
+		<Heading type="h3" heading="他の視点はこちら" className="u-center u-margin__top144 u-margin__top--sp96" />
 		<ul class="l-grid u-margin__top72">
 			{
 				Allposts.map(p => (
@@ -100,7 +103,9 @@ let Allposts = await Allresponse.json();
 				))
 			}
 		</ul>
-		<Share url={`https://dooshin.net/shiten/article/${slug}`} />
+		<div class="u-center u-margin__top64 u-margin__top--sp32 u-margin__bottom144 u-margin__bottom--sp96">
+			<Button title="一覧へ戻る" url="/article" className="c-button__reverse" />
+		</div>
 	</ContentWrapper>
 </BaseLayout>
 
