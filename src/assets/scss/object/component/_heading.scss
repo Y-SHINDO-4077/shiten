@@ -48,16 +48,26 @@
 
 	&.c-heading-h1__icon--info,
 	&.c-heading-h2__icon--info {
+		.c-heading-h1__icon,
+		.c-heading-h2__icon {
+			right: 0;
+		}
+
+		&::after {
+			left: 40%;
+			width: calc(100% - 80px);
+		}
+
 		@media screen and (max-width: 768px) {
 			.c-heading-h1__icon,
 			.c-heading-h2__icon {
-				right: -8px;
+				right: 16px;
 			}
 
 			&::after {
 				bottom: 10px;
 				left: 140px;
-				width: calc(100% - 16px);
+				width: calc(100% - 96px);
 			}
 		}
 	}
