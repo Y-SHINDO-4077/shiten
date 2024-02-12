@@ -7,9 +7,9 @@ type Props = {
 	heading: string;
 	type: 'h1' | 'h2' | 'h3' | 'h4';
 	className?: string;
-	icon?: 'ear' | 'info' | 'map';
+	icon?: 'ear' | 'info' | 'map | none';
 	IconArray?: {
-		icon?: 'ear' | 'info' | 'map';
+		icon?: 'ear' | 'info' | 'map | none';
 		src: ImageMetadata;
 	}[];
 };
@@ -25,6 +25,10 @@ const IconArray = [
 	{
 		icon: 'map',
 		src: Map,
+	},
+	{
+		icon: 'none',
+		src: '',
 	},
 ];
 const { heading, type, icon = 'ear', className } = Astro.props;

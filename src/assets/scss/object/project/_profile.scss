@@ -8,6 +8,14 @@
 		padding: 16px;
 	}
 
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
 	.p-profile__wrap {
 		gap: 24px;
 	}

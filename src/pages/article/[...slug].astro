@@ -60,7 +60,7 @@ let Allposts = await Allresponse.json();
 			<div class="p-article-detail__image u-margin__top72 u-margin__top--sp48 u-center">
 				<img src={post.thumbnail_url.url} alt="" />
 			</div>
-			<h1 class="c-heading-h1 u-margin__inline u-margin__top32 u-margin__top--sp16">
+			<h1 class="c-heading-h1 c-heading-h1--none u-margin__inline u-center u-margin__top32 u-margin__top--sp16">
 				{
 					posttitleArray.map(title => {
 						return (
@@ -447,14 +447,9 @@ let Allposts = await Allresponse.json();
 		}
 	}
 
-	.wp-block-heading {
-		+ p {
-			margin-bottom: 64px;
-			line-height: 1.5;
-
-			@media screen and (max-width: 768px) {
-				margin-bottom: 32px;
-			}
+	.p-article-detail {
+		p {
+			line-height: 2;
 		}
 	}
 

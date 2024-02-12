@@ -28,6 +28,13 @@
 		transform: translateX(-50%);
 	}
 
+	&.c-heading-h1--none,
+	&.c-heading-h2--none {
+		&::after {
+			display: none;
+		}
+	}
+
 	.c-heading-h1__icon,
 	.c-heading-h2__icon {
 		position: absolute;
