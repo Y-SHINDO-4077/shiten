@@ -1,6 +1,18 @@
 .p-map {
+	position: relative;
+
 	img {
 		width: 100%;
 		height: auto;
+	}
+
+	.p-map__inuyama {
+		top: 10px;
+		left: clamp(11.25rem, -8.63rem + 38.36vw, 22rem);
+
+		@media screen and (max-width: 768px) {
+			top: 0;
+			left: clamp(5.1em, -1.652rem + 30.13vw, 12.813rem);
+		}
 	}
 }

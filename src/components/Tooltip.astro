@@ -1,0 +1,28 @@
+---
+type Props = {
+	url: string;
+	title: string;
+	className?: string;
+};
+
+import Map from '../assets/images/map-point-wave.svg';
+const { url, title, className } = Astro.props;
+---
+
+<div class=`c-tooltop js-tooltip ${className}` role="tooltip">
+	<span class="c-tooltip__icon">
+		<img src={Map.src} alt="" />
+	</span>
+	<a href={url} class="c-tooltip__content js-tooltip__content">
+		{title}
+	</a>
+</div>
+
+<script>
+	const tooltip = document.querySelectorAll('.js-tooltip');
+	tooltip.forEach(tip => {
+		tip.addEventListener('click', () => {
+			tip.classList.toggle('is-active');
+		});
+	});
+</script>

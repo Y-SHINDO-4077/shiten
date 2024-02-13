@@ -16,7 +16,7 @@ import AboutImg01 from '../assets/images/about_img_01.jpg';
 import AboutImg02 from '../assets/images/about_img_02.jpg';
 import AboutImg03 from '../assets/images/about_img_03.jpg';
 import AichiMap from '../assets/images/aichi_map.png';
-import { p, p } from 'shikiji-core/dist/chunk-types.mjs';
+import Tooltip from '../components/Tooltip.astro';
 
 let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?per_page=3&context=embed&acf_format=standard');
 if (!response.ok) {
@@ -71,6 +71,7 @@ let posts = await response.json();
 			<Heading type="h2" heading="みんなの視点MAP" icon="map" />
 			<div class="u-margin__top64 u-margin__top--sp48 p-map">
 				<Image src={AichiMap} alt="愛知県の地図" />
+				<Tooltip className="p-map__inuyama" title="犬山城" url="/article/inuyamajo" />
 			</div>
 		</section>
 	</ContentWrapper>

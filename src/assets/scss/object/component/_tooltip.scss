@@ -1,0 +1,61 @@
+@use '../../foundation/_base.scss' as *;
+
+.c-tooltop {
+	position: absolute;
+	display: block;
+	width: fit-content;
+
+	&.is-active {
+		.c-tooltip__content {
+			display: block;
+		}
+	}
+}
+
+.c-tooltip__icon {
+	display: block;
+	max-width: 50px;
+	max-height: 50px;
+
+	@media screen and (max-width: 768px) {
+		max-width: 30px;
+		max-height: 30px;
+	}
+}
+
+.c-tooltip__content {
+	position: absolute;
+	bottom: 80px;
+	left: 50%;
+	display: none;
+	width: 100%;
+	width: fit-content;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 700;
+	white-space: nowrap;
+	background-color: #b9b9b9;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+	transition: all 0.3s ease;
+	transform: translate(-50%, 50%);
+
+	&::after {
+		position: absolute;
+		top: 95%;
+		left: 50%;
+		content: '';
+		border: 10px solid transparent;
+		border-top-color: #b9b9b9;
+		transform: translateX(-50%);
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	@media screen and (max-width: 768px) {
+		bottom: 55px;
+		font-size: 14px;
+	}
+}
