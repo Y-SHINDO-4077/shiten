@@ -10,7 +10,7 @@ import Logo from '../assets/images/logo.svg';
 			<p class="p-header__subtitle">いままで知らなかった、まちの視点</p>
 		</a>
 	</h1>
-	<button class="p-hamburger js-hamburgerButton">
+	<button class="p-hamburger js-hamburgerButton" aria-control="globalNav" aria-expanded="false">
 		<span class="p-hamburger__bars">
 			<span class="p-hamburger__bar p-hamburger__bar--primary"></span>
 			<span class="p-hamburger__bar p-hamburger__bar--secondary"></span>
@@ -34,6 +34,11 @@ import Logo from '../assets/images/logo.svg';
 <script>
 	document.querySelector('.js-hamburgerButton').addEventListener('click', () => {
 		document.querySelector('.js-hamburgerButton').classList.toggle('is-active');
+		if (document.querySelector('.js-hamburgerButton').getAttribute('aria-expanded') === 'true') {
+			document.querySelector('.js-hamburgerButton').setAttribute('aria-expanded', 'false');
+		} else {
+			document.querySelector('.js-hamburgerButton').setAttribute('aria-expanded', 'true');
+		}
 		document.querySelector('.p-header__navigation').classList.toggle('is-active');
 	});
 </script>
