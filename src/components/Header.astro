@@ -32,13 +32,15 @@ import Logo from '../assets/images/logo.svg';
 </header>
 
 <script>
-	document.querySelector('.js-hamburgerButton').addEventListener('click', () => {
-		document.querySelector('.js-hamburgerButton').classList.toggle('is-active');
-		if (document.querySelector('.js-hamburgerButton').getAttribute('aria-expanded') === 'true') {
-			document.querySelector('.js-hamburgerButton').setAttribute('aria-expanded', 'false');
+	const hamburgerButton = document.querySelector('.js-hamburgerButton');
+	const hamburgerMenu = document.querySelector('.p-header__navigation');
+	hamburgerButton.addEventListener('click', () => {
+		hamburgerButton.classList.toggle('is-active');
+		if (hamburgerButton.getAttribute('aria-expanded') === 'true') {
+			hamburgerButton.setAttribute('aria-expanded', 'false');
 		} else {
-			document.querySelector('.js-hamburgerButton').setAttribute('aria-expanded', 'true');
+			hamburgerButton.setAttribute('aria-expanded', 'true');
 		}
-		document.querySelector('.p-header__navigation').classList.toggle('is-active');
+		hamburgerMenu.classList.toggle('is-active');
 	});
 </script>
