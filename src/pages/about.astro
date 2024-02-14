@@ -141,8 +141,10 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 			font-weight: 900;
 			letter-spacing: -0.1em;
 			content: '0 ' counter(number) ' ';
+		}
 
-			@media screen and (max-width: 768px) {
+		@media screen and (max-width: 768px) {
+			&::before {
 				top: -20px;
 				left: -16px;
 				font-size: 40px;
