@@ -118,6 +118,10 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 		&.swiper-slide__secondary {
 			margin-top: 64px;
 		}
+
+		img {
+			max-width: 100%;
+		}
 	}
 
 	.p-ability {
@@ -132,15 +136,15 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 			position: absolute;
 			top: -40px;
 			left: -40px;
-			font-family: 'poppins, sans-serif';
+			font-family: poppins, sans-serif;
 			font-size: 64px;
 			font-weight: 900;
-			letter-spacing: -0.2em;
+			letter-spacing: -0.1em;
 			content: '0 ' counter(number) ' ';
 
 			@media screen and (max-width: 768px) {
 				top: -20px;
-				left: -20px;
+				left: -16px;
 				font-size: 40px;
 			}
 		}
@@ -153,9 +157,9 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 	const mySwiper = new Swiper('.swiper', {
 		loop: true,
 		loopedSlides: 4,
-		slidesPerView: 4,
-		speed: 8000,
-		spaceBetween: 120,
+		slidesPerView: 2,
+		speed: 10000,
+		spaceBetween: 60,
 		autoplay: {
 			delay: 0,
 			disableOnInteraction: false,
@@ -166,7 +170,11 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 		breakpoints: {
 			768: {
 				slidesPerView: 4,
-				spaceBetween: 240,
+				spaceBetween: 10,
+			},
+			1024: {
+				slidesPerView: 4,
+				spaceBetween: 24,
 			},
 		},
 	});
