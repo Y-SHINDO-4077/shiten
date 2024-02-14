@@ -56,12 +56,12 @@ let posts = await response.json();
 							posttitleArray = [posttitle];
 						}
 						return (
-							<div class="content">
-								<a class="content-link" href={`/article/${post.slug}`}>
-									<p class="content-text">
+							<div class="p-mv__content">
+								<a class="p-mv__content-link" href={`/article/${post.slug}`}>
+									<p class="p-mv__content-text">
 										<span class="content-text__marker">
 											{posttitleArray.slice(0, 2).map(word => (
-												<span class="content-text__markerBg">{word}</span>
+												<span class="p-mv__content-text__markerBg">{word}</span>
 											))}
 										</span>
 									</p>
@@ -100,173 +100,7 @@ let posts = await response.json();
 	</ContentWrapper>
 </div>
 
-<style is:global lang="scss">
-	.p-mv {
-		position: relative;
-		z-index: 1;
-		width: 100%;
-		height: 100svh;
-		overflow: hidden;
-		background-image: url('/mv_pc.jpg');
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-
-		@media screen and (max-width: 768px) {
-			background-image: url('/mv_sp.jpg');
-		}
-
-		&::before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			width: 100%;
-			height: 100%;
-			content: '';
-			background: rgb(255 255 255 / 30%);
-		}
-
-		.swiper {
-			height: 100svh;
-		}
-	}
-
-	.swiper-wrapper {
-		width: 100%;
-		max-width: 650px;
-		margin-block: 2svh 10svh;
-		margin-left: auto;
-
-		@media screen and (max-width: 768px) {
-			margin-block: 20svh auto;
-		}
-	}
-
-	.slide-media {
-		position: relative;
-		z-index: 1;
-		width: 100%;
-		height: 88svh;
-		background-image: url('../assets/images/scope_icon.svg');
-		background-repeat: no-repeat;
-		background-size: contain;
-
-		@media only screen and (max-width: 1024px) {
-			height: max(70vh, 70vw);
-		}
-
-		@media only screen and (max-width: 768px) {
-			height: 88svh;
-		}
-
-		img {
-			position: absolute;
-			top: 5vh;
-			left: 2vw;
-			z-index: -1;
-			width: calc(100% - 40vh);
-			max-width: 440px;
-			max-height: 440px;
-			aspect-ratio: 1 / 1;
-			border-radius: 50%;
-			object-fit: cover;
-			object-position: center;
-
-			@media only screen and (max-width: 1024px) {
-				top: 4vh;
-				left: 2vw;
-				width: calc(100% - 36vh);
-				max-width: 550px;
-				max-height: 550px;
-			}
-
-			@media only screen and (max-width: 768px) {
-				top: 5vh;
-				left: 5vw;
-				width: calc(100% - 20vw);
-			}
-		}
-	}
-
-	.content {
-		position: absolute;
-		bottom: min(40px, 20svh);
-		box-sizing: content-box;
-		max-width: 660px;
-		height: 200px;
-		margin-block: auto;
-		margin-right: auto;
-	}
-
-	.content-text__markerBg {
-		position: relative;
-		z-index: 3;
-		display: inline-block;
-		display: none;
-		width: fit-content;
-		padding: 8px 16px;
-		font-size: clamp(16px, 0.286rem + 3.57vw, 56px);
-		font-weight: bold;
-		white-space: nowrap;
-		opacity: 0;
-		transition: opacity 0.2s ease-in;
-
-		&:last-of-type {
-			margin-top: 16px;
-		}
-	}
-
-	.content.is-animated {
-		.content-link {
-			@media screen and (min-width: 768px) {
-				&:hover {
-					.content-text__markerBg {
-						opacity: 0.7;
-					}
-				}
-			}
-		}
-
-		.content-text__markerBg {
-			display: inline-block;
-			opacity: 1;
-
-			&::before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: -1;
-				width: 100%;
-				height: 100%;
-				content: '';
-				background: #fff;
-				transform-origin: left center;
-				animation: bg 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-			}
-		}
-	}
-
-	@keyframes bg {
-		0% {
-			opacity: 0;
-			transform: scaleX(0) translateX(-5%);
-		}
-
-		30% {
-			transform: scaleX(1) translateX(0);
-		}
-
-		100% {
-			transform: scaleX(1) translateX(0);
-		}
-
-		30%,
-		100% {
-			opacity: 1;
-		}
-	}
-</style>
+<style is:global lang="scss"></style>
 
 <script type="module">
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
@@ -276,12 +110,12 @@ let posts = await response.json();
 		startAnimation(0);
 	});
 	const startAnimation = index => {
-		let activeSlide = document.querySelectorAll('.p-mv .content')[index];
+		let activeSlide = document.querySelectorAll('.p-mv .p-mv__content')[index];
 		activeSlide.classList.add('is-animated');
 	};
 	// アニメーション終了
 	const finishAnimation = () => {
-		let activeSlides = document.querySelectorAll('.p-mv .content');
+		let activeSlides = document.querySelectorAll('.p-mv .p-mv__content');
 		activeSlides.forEach(activeSlides => {
 			activeSlides.classList.remove('is-animated');
 		});

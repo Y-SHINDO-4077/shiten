@@ -2,12 +2,11 @@
 export const prerender = true;
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentWrapper from '../../components/ContentWrapper.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
 import Heading from '../../components/Heading.astro';
 import Text from '../../components/Text.astro';
 import Card from '../../components/Card.astro';
 import CardImg from '../../assets/images/card_img.jpg';
-import { p } from 'shikiji-core/dist/chunk-types.mjs';
 
 let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?context=embed&acf_format=standard');
 if (!response.ok) {
@@ -16,7 +15,7 @@ if (!response.ok) {
 let posts = await response.json();
 ---
 
-<BaseLayout title={`視点の専門家に聞く | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+<BaseLayout title="視点の専門家に聞く | SHITEN" description="SHITENの記事一覧ページです">
 	<section class="u-margin__top144 u-margin__bottom96">
 		<ContentWrapper>
 			<Heading type="h1" heading="視点の専門家に聞く" icon="ear" className="u-margin__inline" />
