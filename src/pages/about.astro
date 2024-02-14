@@ -32,7 +32,7 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
 			</Text>
 		</ContentWrapper>
-		<div class="swiper">
+		<div class="swiper js-swiper">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
@@ -156,7 +156,7 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 <script type="module">
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
-	const mySwiper = new Swiper('.swiper', {
+	const mySwiper = new Swiper('.js-swiper', {
 		loop: true,
 		loopedSlides: 4,
 		slidesPerView: 2,
