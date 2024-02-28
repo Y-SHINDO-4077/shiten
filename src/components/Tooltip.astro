@@ -9,11 +9,11 @@ import Map from '../assets/images/map-point-wave.svg';
 const { url, title, className } = Astro.props;
 ---
 
-<div class=`c-tooltop js-tooltip ${className}` role="tooltip">
+<div class=`c-tooltop js-tooltip ${className}` role="tooltip" aria-label="tooltip">
 	<span class="c-tooltip__icon">
 		<img src={Map.src} alt="" />
 	</span>
-	<a href={url} class="c-tooltip__content js-tooltip__content">
+	<a href={url} class="c-tooltip__content js-tooltip__content" title={title} aria-labelledby="tooltip">
 		{title}
 	</a>
 </div>

@@ -23,8 +23,6 @@ const articleDate = new Date(date);
 		{title}
 		<span class="p-card__compellation">さん</span>
 	</h3>
-	<Fragment class="p-card__description" set:html={description} />
-	<p class="p-card__date">
-		<FormattedDate date={articleDate} />
-	</p>
+	<Fragment class="p-card__description">{description.substring(3)}</Fragment>
+	<FormattedDate date={articleDate} />
 </a>

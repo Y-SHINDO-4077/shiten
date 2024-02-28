@@ -31,30 +31,30 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
 			</Text>
 		</ContentWrapper>
-		<div class="swiper js-swiper">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
+		<div class="swiper p-about-swiper js-swiper">
+			<div class="swiper-wrapper p-about-swiper__wrapper">
+				<div class="swiper-slide p-about-swiper__slide">
 					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
 				</div>
-				<div class="swiper-slide swiper-slide__secondary">
+				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
 					<Image src={AboutInfoImg02} alt="SHITEN" width="372" height="250" />
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide p-about-swiper__slide">
 					<Image src={AboutInfoImg03} alt="SHITEN" width="372" height="250" />
 				</div>
-				<div class="swiper-slide swiper-slide__secondary">
+				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
 					<Image src={AboutInfoImg04} alt="SHITEN" width="372" height="250" />
 				</div>
 				<div class="swiper-slide">
 					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
 				</div>
-				<div class="swiper-slide swiper-slide__secondary">
+				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
 					<Image src={AboutInfoImg02} alt="SHITEN" width="372" height="250" />
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide p-about-swiper__slide">
 					<Image src={AboutInfoImg03} alt="SHITEN" width="372" height="250" />
 				</div>
-				<div class="swiper-slide swiper-slide__secondary">
+				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
 					<Image src={AboutInfoImg04} alt="SHITEN" width="372" height="250" />
 				</div>
 			</div>
@@ -106,15 +106,15 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 <style is:global>
 	@use '../../assets/css/foundation/_base.scss';
 
-	.swiper {
+	.p-about-swiper {
 		width: 100%;
 		margin-top: 64px;
 	}
 
-	.swiper-slide {
+	.p-about-swiper__slide {
 		transition-timing-function: linear;
 
-		&.swiper-slide__secondary {
+		&.p-about-swiper__slide--secondary {
 			margin-top: 64px;
 		}
 
