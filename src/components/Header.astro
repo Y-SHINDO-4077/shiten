@@ -49,6 +49,8 @@ import InfoIcon from '../assets/images/circle-info-solid.svg';
 <script>
 	const hamburgerButton = document.querySelector('.js-hamburgerButton');
 	const hamburgerMenu = document.querySelector('.p-header__navigation');
+	const headerIcons = document.querySelectorAll('.p-header__decoration');
+	console.log(headerIcons);
 	if (hamburgerButton) {
 		hamburgerButton.addEventListener('click', () => {
 			hamburgerButton.classList.toggle('is-active');
@@ -59,6 +61,17 @@ import InfoIcon from '../assets/images/circle-info-solid.svg';
 			}
 			if (hamburgerMenu) {
 				hamburgerMenu.classList.toggle('is-active');
+				if (hamburgerMenu.classList.contains('is-active')) {
+					setTimeout(() => {
+						headerIcons.forEach(icon => {
+							icon.classList.add('is-active');
+						});
+					}, 300);
+				} else {
+					headerIcons.forEach(icon => {
+						icon.classList.remove('is-active');
+					});
+				}
 			}
 		});
 	}
