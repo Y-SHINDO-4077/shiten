@@ -69,6 +69,7 @@ let posts = await response.json();
 		</section>
 		<section class="p-top-map u-margin__top--sp56 u-margin__top144 u-margin__bottom--sp56 u-margin__bottom96">
 			<Heading type="h2" heading="みんなの視点MAP" icon="map" className="js-fadeIn" />
+			<Text lineHeight="loose" className="u-margin__bottom64 u-margin__bottom--sp48 u-margin__top32 u-margin__top--sp16 js-fadeIn"> アイコンをクリックすると、記事を読むことができます。 </Text>
 			<div class="u-margin__top64 u-margin__top--sp48 p-map js-fadeIn">
 				<Image src={AichiMap} alt="愛知県の地図" />
 				<Tooltip className="p-map__inuyama" title="犬山城" url="/article/inuyamajo" />
@@ -77,7 +78,7 @@ let posts = await response.json();
 	</ContentWrapper>
 </BaseLayout>
 
-<script>
+<script type="module">
 	gsap.registerPlugin(ScrollTrigger);
 
 	document.addEventListener('DOMContentLoaded', event => {
