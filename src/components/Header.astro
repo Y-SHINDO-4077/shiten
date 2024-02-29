@@ -1,6 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 import Logo from '../assets/images/logo.svg';
+import MenuIcon01 from '../assets/images/menu_icon_01.svg';
+import MenuIcon02 from '../assets/images/menu_icon_02.svg';
+import MenuIcon03 from '../assets/images/menu_icon_03.svg';
+import MenuIcon04 from '../assets/images/menu_icon_04.svg';
+import MenuIcon05 from '../assets/images/menu_icon_05.svg';
+import MenuIcon06 from '../assets/images/menu_icon_06.svg';
+import HouseIcon from '../assets/images/house-solid.svg';
+import EarIcon from '../assets/images/ear-listen-solid.svg';
+import InfoIcon from '../assets/images/circle-info-solid.svg';
 ---
 
 <header class="l-header p-header">
@@ -18,29 +27,39 @@ import Logo from '../assets/images/logo.svg';
 		</span>
 		<span class="p-hamburger__menu">MENU</span>
 	</button>
-	<ul class="p-header__navigation">
+	<nav class="p-header__navigation">
+		<Image src={MenuIcon01} alt="" class="p-header__decoration p-header__decoration--primary" />
+		<Image src={MenuIcon02} alt="" class="p-header__decoration p-header__decoration--secondary" />
+		<Image src={MenuIcon03} alt="" class="p-header__decoration p-header__decoration--territery" />
+		<Image src={MenuIcon04} alt="" class="p-header__decoration p-header__decoration--quaternary" />
+		<Image src={MenuIcon05} alt="" class="p-header__decoration p-header__decoration--quinary" />
+		<Image src={MenuIcon06} alt="" class="p-header__decoration p-header__decoration--senary" />
 		<ul class="p-header__navigation-list l-section-inner">
-			<li class="p-header__navigation-item"><a href="/">HOME</a></li>
-			<li class="p-header__navigation-item"><a href="/article">視点の専門家に聞く</a></li>
-			<li class="p-header__navigation-item"><a href="/about">SHITENとは</a></li>
+			<li class="p-header__navigation-item"><a href="/">HOME<Image src={HouseIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
+			<li class="p-header__navigation-item"><a href="/article">視点の専門家に聞く<Image src={EarIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
+			<li class="p-header__navigation-item"><a href="/about">SHITENとは<Image src={InfoIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
 		</ul>
 		<ul class="p-header__navigation-list p-header__navigation-list--secondary l-section-inner l-flex">
 			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="/terms">利用規約</a></li>
 			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="/privacy">プライバシーポリシー</a></li>
 		</ul>
-	</ul>
+	</nav>
 </header>
 
 <script>
 	const hamburgerButton = document.querySelector('.js-hamburgerButton');
 	const hamburgerMenu = document.querySelector('.p-header__navigation');
-	hamburgerButton.addEventListener('click', () => {
-		hamburgerButton.classList.toggle('is-active');
-		if (hamburgerButton.getAttribute('aria-expanded') === 'true') {
-			hamburgerButton.setAttribute('aria-expanded', 'false');
-		} else {
-			hamburgerButton.setAttribute('aria-expanded', 'true');
-		}
-		hamburgerMenu.classList.toggle('is-active');
-	});
+	if (hamburgerButton) {
+		hamburgerButton.addEventListener('click', () => {
+			hamburgerButton.classList.toggle('is-active');
+			if (hamburgerButton.getAttribute('aria-expanded') === 'true') {
+				hamburgerButton.setAttribute('aria-expanded', 'false');
+			} else {
+				hamburgerButton.setAttribute('aria-expanded', 'true');
+			}
+			if (hamburgerMenu) {
+				hamburgerMenu.classList.toggle('is-active');
+			}
+		});
+	}
 </script>
