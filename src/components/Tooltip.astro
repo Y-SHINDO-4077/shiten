@@ -9,14 +9,14 @@ import Map from '../assets/images/map-point-wave.svg';
 const { url, title, className } = Astro.props;
 ---
 
-<div class=`c-tooltop js-tooltip ${className}` role="tooltip" aria-label="tooltip">
+<button class=`c-tooltop js-tooltip ${className}` role="tooltip" aria-labelledby="tooltip" title={title} aria-label="tooltip">
 	<span class="c-tooltip__icon">
 		<img src={Map.src} alt="" />
 	</span>
-	<a href={url} class="c-tooltip__content js-tooltip__content" title={title} aria-labelledby="tooltip">
-		{title}
+	<a href={url} class="c-tooltip__content js-tooltip__content" title={title} area-label="tooltip-link" area-labelledby={`tooltip-${url}_link`} id={`tooltip-${url}`}>
+		<span id={`tooltip-${url}_link`}>{title}</span>
 	</a>
-</div>
+</button>
 
 <script>
 	const tooltip = document.querySelectorAll('.js-tooltip');
