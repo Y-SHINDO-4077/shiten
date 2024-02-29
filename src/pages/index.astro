@@ -26,8 +26,10 @@ let posts = await response.json();
 	<MV />
 	<ContentWrapper>
 		<section class="p-top-articles u-margin__top--sp56 u-margin__top144">
-			<Heading type="h2" heading="視点の専門家に聞く" icon="ear" />
-			<Text className="u-margin__top--sp24 u-margin__top32">まちを楽しむには「視点」が必要なのでは？面白いマニアックなまちの見方、楽しめるまちの見方を持っている方々の記事はこちらから。 </Text>
+			<Heading type="h2" heading="視点の専門家に聞く" icon="ear" className="js-fadeIn" />
+			<Text className="u-margin__top--sp24 u-margin__top32 js-fadeIn"
+				>まちを楽しむには「視点」が必要なのでは？面白いマニアックなまちの見方、楽しめるまちの見方を持っている方々の記事はこちらから。
+			</Text>
 			<div class="l-grid u-margin__top40">
 				{
 					posts.map(post => (
@@ -37,22 +39,23 @@ let posts = await response.json();
 								url={`/article/${post.slug}`}
 								image={post.thumbnail_url ? post.thumbnail_url.url : { CardImg }}
 								role={`${post.acf.role}`}
-								description={post.excerpt.rendered.slice(0, 120)}
+								description={post.excerpt.rendered.slice(0, 114)}
 								date={post.date}
 								title={post.acf.name}
+								className="js-fadeIn"
 							/>
 						</article>
 					))
 				}
 			</div>
-			<div class="p-button u-center">
+			<div class="p-button u-center js-fadeIn">
 				<Button url="/article" title="一覧はこちら" className="u-margin__topsp44  u-margin__top64" />
 			</div>
 		</section>
 		<section class="p-top-info u-margin__top--sp56 u-margin__top144">
-			<Heading type="h2" heading=`<img src=${Logo.src} class="c-shiten__logo" alt="SHITEN" width="320" height="72" />とは` icon="info" className="c-heading-h2__icon--info" />
+			<Heading type="h2" heading=`<img src=${Logo.src} class="c-shiten__logo" alt="SHITEN" width="320" height="72" />とは` icon="info" className="c-heading-h2__icon--info js-fadeIn" />
 
-			<Text lineHeight="loose" className="u-center u-margin__top--sp64 u-margin__top104">
+			<Text lineHeight="loose" className="u-center u-margin__top--sp64 u-margin__top104 js-fadeIn">
 				暮らしているまちを楽しむには、どうしたらいいのだろう。<br />
 				まちを楽しむには「視点」が必要なのでは？
 				<br />
@@ -60,16 +63,46 @@ let posts = await response.json();
 				<br />Instagramでの投稿に基づいてMAP化したりして楽しむまちのポータルメディアです。
 			</Text>
 
-			<div class="p-button u-center">
+			<div class="p-button u-center js-fadeIn">
 				<Button url="/about" title="詳しくはこちら" className="u-margin__topsp44  u-margin__top64" />
 			</div>
 		</section>
 		<section class="p-top-map u-margin__top--sp56 u-margin__top144 u-margin__bottom--sp56 u-margin__bottom96">
-			<Heading type="h2" heading="みんなの視点MAP" icon="map" />
-			<div class="u-margin__top64 u-margin__top--sp48 p-map">
+			<Heading type="h2" heading="みんなの視点MAP" icon="map" className="js-fadeIn" />
+			<div class="u-margin__top64 u-margin__top--sp48 p-map js-fadeIn">
 				<Image src={AichiMap} alt="愛知県の地図" />
 				<Tooltip className="p-map__inuyama" title="犬山城" url="/article/inuyamajo" />
 			</div>
 		</section>
 	</ContentWrapper>
 </BaseLayout>
+
+<script>
+	gsap.registerPlugin(ScrollTrigger);
+
+	document.addEventListener('DOMContentLoaded', event => {
+		const fadeIn = document.querySelectorAll('.js-fadeIn');
+		if (fadeIn) {
+			fadeIn.forEach(fade => {
+				gsap.fromTo(
+					fade,
+					{
+						opacity: 0,
+						y: 10,
+					},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.3,
+						scrollTrigger: {
+							trigger: fade,
+							start: 'top 80%',
+							end: 'bottom bottom',
+							scrub: true,
+						},
+					},
+				);
+			});
+		}
+	});
+</script>

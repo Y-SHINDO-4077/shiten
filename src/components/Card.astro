@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
 
 type Props = {
@@ -9,12 +8,13 @@ type Props = {
 	role: string;
 	description: string;
 	date: string;
+	className?: string;
 };
-const { url, title, image, role, description, date } = Astro.props;
+const { url, title, image, role, description, date, className } = Astro.props;
 const articleDate = new Date(date);
 ---
 
-<a href={url} class="p-card">
+<a href={url} class={`p-card ${className && className}`}>
 	<div class="p-card__image">
 		<img src={image} alt="" />
 	</div>
