@@ -25,19 +25,6 @@ let posts = await response.json();
 						);
 					})
 				}
-				{
-					posts.map(post => {
-						return (
-							<div class="swiper-slide p-mv-swiper__slide">
-								<div class="slide p-mv-swiper__slides">
-									<div class="slide-media p-mv-swiper__slide-media">
-										<img src={post.thumbnail_url.url} alt="" class="p-mv__icon" />
-									</div>
-								</div>
-							</div>
-						);
-					})
-				}
 			</div>
 
 			<div class="p-mv_contents">
@@ -66,31 +53,6 @@ let posts = await response.json();
 						);
 					})
 				}
-				{
-					posts.map(post => {
-						let posttitle = post.title.rendered;
-						let pattern = ' ';
-						let posttitleArray = [];
-						if (posttitle.match(pattern)) {
-							posttitleArray = posttitle.split(pattern);
-						} else {
-							posttitleArray = [posttitle];
-						}
-						return (
-							<div class="content">
-								<a class="content-link" href={`/article/${post.slug}`}>
-									<p class="content-text">
-										<span class="content-text__marker">
-											{posttitleArray.slice(0, 2).map(word => (
-												<span class="content-text__markerBg">{word}</span>
-											))}
-										</span>
-									</p>
-								</a>
-							</div>
-						);
-					})
-				}
 			</div>
 		</div>
 	</ContentWrapper>
@@ -102,12 +64,20 @@ let posts = await response.json();
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
 	const slideLength = document.querySelectorAll('.p-mv .swiper-slide').length;
-	window.addEventListener('DOMContentLoaded', () => {
-		startAnimation(0);
-	});
+	// window.addEventListener('DOMContentLoade', () => {
+	// 	setTimeout(() => {
+	// 		startAnimation(0);
+	// 	}, 1000);
+
+	// });
 	const startAnimation = index => {
 		let activeSlide = document.querySelectorAll('.p-mv .p-mv__content')[index];
-		activeSlide.classList.add('is-animated');
+		if (activeSlide) {
+			// activeSlideが存在することを確認
+			activeSlide.classList.add('is-animated');
+		} else {
+			console.error(`No active slide found at index ${index}`);
+		}
 	};
 	// アニメーション終了
 	const finishAnimation = () => {
@@ -119,7 +89,6 @@ let posts = await response.json();
 
 	const mySwiper = new Swiper('.p-mv .swiper', {
 		loop: true,
-		loopAdditionalSlides: 2,
 		speed: 2000,
 		effect: 'fade',
 		autoplay: {
@@ -129,6 +98,8 @@ let posts = await response.json();
 		},
 		followFinger: false,
 		observeParents: true,
+		slidesPerView: 1,
+		slidesPerGroup: 1,
 		on: {
 			slideChange: swiper => {
 				finishAnimation();
@@ -138,4 +109,17 @@ let posts = await response.json();
 			},
 		},
 	});
+
+	let swiperWrapper = document.querySelector('.swiper-wrapper');
+	let firstSlide = document.querySelector('.swiper-slide');
+	let clonedSlide = firstSlide.cloneNode(true);
+	swiperWrapper.appendChild(clonedSlide);
+
+	window.addEventListener('DOMContentLoaded', () => {
+		setTimeout(() => {
+			mySwiper.update();
+			startAnimation(0);
+		}, 1000);
+	});
+	//mySwiper.update();
 </script>
