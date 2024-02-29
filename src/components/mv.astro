@@ -1,9 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import ContentWrapper from './ContentWrapper.astro';
-import CardImg from '../assets/images/card_img.jpg';
-import AboutImg01 from '../assets/images/about_img_01.jpg';
-import AboutImg02 from '../assets/images/about_img_02.jpg';
 
 let response = await fetch('https://dooshin.net/shiten_wp/wp-json/wp/v2/posts?per_page=3&context=embed&acf_format=standard');
 if (!response.ok) {
@@ -14,14 +10,14 @@ let posts = await response.json();
 
 <div class="p-mv">
 	<ContentWrapper>
-		<div class="swiper">
-			<div class="swiper-wrapper">
+		<div class="swiper p-mv-swiper">
+			<div class="swiper-wrapper p-mv-swiper__wrapper">
 				{
 					posts.map(post => {
 						return (
-							<div class="swiper-slide">
-								<div class="slide">
-									<div class="slide-media">
+							<div class="swiper-slide p-mv-swiper__slide">
+								<div class="slide p-mv-swiper__slides">
+									<div class="slide-media p-mv-swiper__slide-media">
 										<img src={post.thumbnail_url.url} alt="" class="p-mv__icon" />
 									</div>
 								</div>
@@ -32,9 +28,9 @@ let posts = await response.json();
 				{
 					posts.map(post => {
 						return (
-							<div class="swiper-slide">
-								<div class="slide">
-									<div class="slide-media">
+							<div class="swiper-slide p-mv-swiper__slide">
+								<div class="slide p-mv-swiper__slides">
+									<div class="slide-media p-mv-swiper__slide-media">
 										<img src={post.thumbnail_url.url} alt="" class="p-mv__icon" />
 									</div>
 								</div>
@@ -44,7 +40,7 @@ let posts = await response.json();
 				}
 			</div>
 
-			<div class="content-wrapper">
+			<div class="p-mv_contents">
 				{
 					posts.map(post => {
 						let posttitle = post.title.rendered;
