@@ -64,12 +64,7 @@ let posts = await response.json();
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
 	const slideLength = document.querySelectorAll('.p-mv .swiper-slide').length;
-	// window.addEventListener('DOMContentLoade', () => {
-	// 	setTimeout(() => {
-	// 		startAnimation(0);
-	// 	}, 1000);
 
-	// });
 	const startAnimation = index => {
 		let activeSlide = document.querySelectorAll('.p-mv .p-mv__content')[index];
 		if (activeSlide) {
@@ -121,5 +116,4 @@ let posts = await response.json();
 			startAnimation(0);
 		}, 1000);
 	});
-	//mySwiper.update();
 </script>
