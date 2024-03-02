@@ -78,12 +78,22 @@ let posts = await response.json();
 	</ContentWrapper>
 </BaseLayout>
 
-<script type="module">
-	gsap.registerPlugin(ScrollTrigger);
+<script>
+	if (typeof window !== 'undefined') {
+		const script1 = document.createElement('script');
+		script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+		document.head.appendChild(script1);
 
-	document.addEventListener('DOMContentLoaded', event => {
-		const fadeIn = document.querySelectorAll('.js-fadeIn');
-		if (fadeIn) {
+		const script2 = document.createElement('script');
+		script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+		document.head.appendChild(script2);
+
+		script2.onload = () => {
+			const gsap = window.gsap;
+			const ScrollTrigger = gsap.ScrollTrigger;
+			gsap.registerPlugin(ScrollTrigger);
+
+			const fadeIn = document.querySelectorAll('.js-fadeIn');
 			fadeIn.forEach(fade => {
 				gsap.fromTo(
 					fade,
@@ -104,6 +114,6 @@ let posts = await response.json();
 					},
 				);
 			});
-		}
-	});
+		};
+	}
 </script>
