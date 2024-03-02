@@ -1,1 +1,0 @@
-import"./Header.astro_astro_type_script_index_0_lang.eITnGysr.js";import"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js";import"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js";const o=document.querySelectorAll(".js-tooltip");o.forEach(t=>{t.addEventListener("click",()=>{t.classList.toggle("is-active")})});
