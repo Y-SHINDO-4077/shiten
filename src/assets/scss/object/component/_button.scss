@@ -1,6 +1,7 @@
 @use '../../foundation/_base.scss' as *;
 
 .c-button {
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
@@ -15,16 +16,39 @@
 	transition: transform 0.3s ease-in;
 	transform: translateX(0%);
 
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		content: '';
+		border: 4px solid $yellow;
+		border-radius: 50vh;
+		opacity: 0;
+	}
+
 	@media screen and (max-width: 768px) {
 		min-width: 48px;
 		padding: 16px 24px;
 		font-size: $font-size-large;
 	}
 
-	&:hover {
-		.c-button__arrow {
-			transition: transform 0.3s ease-out;
-			transform: translateX(10%);
+	@media (hover: hover) {
+		&:hover {
+			background-color: $white;
+			transition: color 0.3s ease-out;
+
+			&::before {
+				opacity: 1;
+				transition: opacity 0.3s ease-out;
+			}
+
+			.c-button__arrow {
+				transition: transform 0.3s ease-out;
+				transform: translateX(10%);
+			}
 		}
 	}
 
@@ -43,6 +67,18 @@
 			.c-button__arrow {
 				transition: transform 0.3s ease-out;
 				transform: rotate(180deg) translateX(10%);
+			}
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background-color: $yellow;
+				transition: color 0.3s ease-out;
+
+				.c-button__arrow {
+					transition: transform 0.3s ease-out;
+					transform: rotate(180deg) translateX(10%);
+				}
 			}
 		}
 	}
