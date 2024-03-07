@@ -59,6 +59,10 @@
 		background-color: transparent;
 		border: 1px solid $yellow;
 
+		@media screen and (max-width: 768px) {
+			gap: 24px;
+		}
+
 		.c-button__arrow {
 			transform: rotate(180deg);
 		}
