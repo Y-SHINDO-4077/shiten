@@ -54,3 +54,9 @@
 	white-space: nowrap;
 	border: 0;
 }
+
+.c-br-sm {
+	@media screen and (max-width: 640px) {
+		display: block;
+	}
+}
