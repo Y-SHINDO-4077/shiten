@@ -20,6 +20,9 @@
 @use 'object/component/_pagetop.scss';
 
 /* object/project */
+@use 'object/project/_about-swiper.scss';
+@use 'object/project/_ability.scss';
+@use 'object/project/_aside.scss';
 @use 'object/project/_card.scss';
 @use 'object/project/_mv.scss';
 @use 'object/project/_map.scss';

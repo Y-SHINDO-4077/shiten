@@ -1,0 +1,23 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-about-swiper {
+	width: 100%;
+	margin-top: 64px;
+}
+
+.p-about-swiper__slide {
+	transition-timing-function: linear;
+
+	&.p-about-swiper__slide--secondary {
+		margin-top: 64px;
+	}
+
+	img {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		aspect-ratio: 372/250;
+		object-fit: cover;
+		object-position: center;
+	}
+}

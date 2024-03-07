@@ -1,0 +1,47 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-aside {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100vh;
+	margin-inline: 16px;
+
+	.p-aside__wrap {
+		position: absolute;
+		bottom: 10%;
+		left: -240px;
+		width: 200px;
+	}
+
+	.p-aside__list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		li {
+			margin-left: 16px;
+			list-style: disc;
+
+			a {
+				@media screen and (min-width: 769px) {
+					&:hover {
+						text-decoration: underline;
+						opacity: 0.7;
+					}
+				}
+			}
+		}
+
+		.p-aside__listHeading3 {
+			margin-left: 16px;
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.p-aside {
+		display: none !important;
+	}
+}

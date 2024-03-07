@@ -34,28 +34,28 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 		<div class="swiper p-about-swiper js-swiper">
 			<div class="swiper-wrapper p-about-swiper__wrapper">
 				<div class="swiper-slide p-about-swiper__slide">
-					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
+					<Image src={AboutInfoImg01} alt="" width="372" height="250" />
 				</div>
 				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
-					<Image src={AboutInfoImg02} alt="SHITEN" width="372" height="250" />
+					<Image src={AboutInfoImg02} alt="" width="372" height="250" />
 				</div>
 				<div class="swiper-slide p-about-swiper__slide">
-					<Image src={AboutInfoImg03} alt="SHITEN" width="372" height="250" />
+					<Image src={AboutInfoImg03} alt="" width="372" height="250" />
 				</div>
 				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
-					<Image src={AboutInfoImg04} alt="SHITEN" width="372" height="250" />
-				</div>
-				<div class="swiper-slide">
-					<Image src={AboutInfoImg01} alt="SHITEN" width="372" height="250" />
-				</div>
-				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
-					<Image src={AboutInfoImg02} alt="SHITEN" width="372" height="250" />
+					<Image src={AboutInfoImg04} alt="" width="372" height="250" />
 				</div>
 				<div class="swiper-slide p-about-swiper__slide">
-					<Image src={AboutInfoImg03} alt="SHITEN" width="372" height="250" />
+					<Image src={AboutInfoImg01} alt="" width="372" height="250" />
 				</div>
 				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
-					<Image src={AboutInfoImg04} alt="SHITEN" width="372" height="250" />
+					<Image src={AboutInfoImg02} alt="" width="372" height="250" />
+				</div>
+				<div class="swiper-slide p-about-swiper__slide">
+					<Image src={AboutInfoImg03} alt="" width="372" height="250" />
+				</div>
+				<div class="swiper-slide p-about-swiper__slide p-about-swiper__slide--secondary">
+					<Image src={AboutInfoImg04} alt="" width="372" height="250" />
 				</div>
 			</div>
 		</div>
@@ -103,55 +103,6 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 	</section>
 </BaseLayout>
 
-<style is:global>
-	@use '../../assets/css/foundation/_base.scss';
-
-	.p-about-swiper {
-		width: 100%;
-		margin-top: 64px;
-	}
-
-	.p-about-swiper__slide {
-		transition-timing-function: linear;
-
-		&.p-about-swiper__slide--secondary {
-			margin-top: 64px;
-		}
-
-		img {
-			max-width: 100%;
-		}
-	}
-
-	.p-ability {
-		counter-reset: number 0;
-	}
-
-	.p-ability__list {
-		position: relative;
-		counter-increment: number 1;
-
-		&::before {
-			position: absolute;
-			top: -40px;
-			left: -40px;
-			font-family: poppins, sans-serif;
-			font-size: 64px;
-			font-weight: 900;
-			letter-spacing: -0.1em;
-			content: '0 ' counter(number) ' ';
-		}
-
-		@media screen and (max-width: 768px) {
-			&::before {
-				top: -20px;
-				left: -16px;
-				font-size: 40px;
-			}
-		}
-	}
-</style>
-
 <script type="module">
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
@@ -176,7 +127,7 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 				},
 				1024: {
 					slidesPerView: 4,
-					spaceBetween: 24,
+					spaceBetween: 20,
 				},
 			},
 		});
