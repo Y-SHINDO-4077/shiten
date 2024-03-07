@@ -90,7 +90,7 @@ const { title, description } = Astro.props;
 			</a>
 		</div>
 		<Footer />
-		<div class="overlay transition-overlay"></div>
+		<div class="p-overlay p-transition-overlay"></div>
 		<script>
 			import Swup from 'swup';
 			//アンカースクロールアニメーション
@@ -143,29 +143,29 @@ const { title, description } = Astro.props;
 				transform: translateY(calc(-1 * 5vh * var(--overlay-direction, 1)));
 			}
 
-			.transition-overlay {
+			.p-transition-overlay {
 				position: fixed;
 				top: 0;
 				right: 0;
 				bottom: 0;
 				left: 0;
-				z-index: 999;
+				z-index: 2;
 				pointer-events: none;
 				background-color: #e7ef61;
 				opacity: 0;
 				transform: translate3d(0, calc(-1 * 100% * var(--overlay-direction, 1)), 0);
 			}
 
-			html.is-changing .transition-overlay {
+			html.is-changing .p-transition-overlay {
 				opacity: 1;
 				transition: transform 400ms ease-in-out;
 			}
 
-			html.is-animating .transition-overlay {
+			html.is-animating .p-transition-overlay {
 				transform: translate3d(0, 0, 0);
 			}
 
-			html.is-rendering .transition-overlay {
+			html.is-rendering .p-transition-overlay {
 				transform: translate3d(0, calc(var(--overlay-direction, 1) * 100%), 0);
 			}
 		</style>
