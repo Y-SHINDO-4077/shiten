@@ -47,6 +47,8 @@
 }
 
 .p-hamburger {
+	position: relative;
+	z-index: 2;
 	display: inline-flex;
 	flex-direction: column;
 	align-items: center;

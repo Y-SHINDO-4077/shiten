@@ -155,28 +155,30 @@ import AboutImg03 from '../assets/images/about_img_03.jpg';
 <script type="module">
 	import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
-	const mySwiper = new Swiper('.js-swiper', {
-		loop: true,
-		loopedSlides: 4,
-		slidesPerView: 2,
-		speed: 10000,
-		spaceBetween: 60,
-		autoplay: {
-			delay: 0,
-			disableOnInteraction: false,
-			pauseOnMouseEnter: false,
-		},
-		followFinger: false,
+	window.addEventListener('DOMContentLoaded', () => {
+		const mySwiper = new Swiper('.js-swiper', {
+			loop: true,
+			loopedSlides: 4,
+			slidesPerView: 2,
+			speed: 10000,
+			spaceBetween: 60,
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: false,
+			},
+			followFinger: false,
 
-		breakpoints: {
-			768: {
-				slidesPerView: 4,
-				spaceBetween: 10,
+			breakpoints: {
+				768: {
+					slidesPerView: 4,
+					spaceBetween: 10,
+				},
+				1024: {
+					slidesPerView: 4,
+					spaceBetween: 24,
+				},
 			},
-			1024: {
-				slidesPerView: 4,
-				spaceBetween: 24,
-			},
-		},
+		});
 	});
 </script>

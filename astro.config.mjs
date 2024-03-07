@@ -14,7 +14,6 @@ export default defineConfig({
 		sitemap(),
 		relativeLinks(),
 		swup({
-			theme: false,
 			smoothScrolling: false,
 			updateBodyClass: true,
 			reloadScripts: false,

@@ -40,16 +40,33 @@ import InfoIcon from '../assets/images/circle-info-solid.svg';
 			<li class="p-header__navigation-item"><a href="/about">SHITENとは<Image src={InfoIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
 		</ul>
 		<ul class="p-header__navigation-list p-header__navigation-list--secondary l-section-inner l-flex">
-			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="/terms">利用規約</a></li>
-			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="/privacy">プライバシーポリシー</a></li>
+			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="">利用規約</a></li>
+			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="">プライバシーポリシー</a></li>
 		</ul>
 	</nav>
 </header>
 
-<script>
+<script type="module">
 	const hamburgerButton = document.querySelector('.js-hamburgerButton');
 	const hamburgerMenu = document.querySelector('.p-header__navigation');
+	const hamburgerMenuItem = document.querySelectorAll('.p-header__navigation-item');
 	const headerIcons = document.querySelectorAll('.p-header__decoration');
+	window.addEventListener('resize', () => {
+		hamburgerButton.classList.remove('is-active');
+		hamburgerButton.setAttribute('aria-expanded', 'false');
+		hamburgerMenu.classList.remove('is-active');
+		headerIcons.forEach(icon => {
+			icon.classList.remove('is-active');
+		});
+	});
+	window.addEventListener('DOMContentLoaded', () => {
+		hamburgerButton.classList.remove('is-active');
+		hamburgerButton.setAttribute('aria-expanded', 'false');
+		hamburgerMenu.classList.remove('is-active');
+		headerIcons.forEach(icon => {
+			icon.classList.remove('is-active');
+		});
+	});
 	if (hamburgerButton) {
 		hamburgerButton.addEventListener('click', () => {
 			hamburgerButton.classList.toggle('is-active');
@@ -72,6 +89,16 @@ import InfoIcon from '../assets/images/circle-info-solid.svg';
 					});
 				}
 			}
+		});
+		hamburgerMenuItem.forEach(item => {
+			item.addEventListener('click', () => {
+				hamburgerButton.classList.remove('is-active');
+				hamburgerButton.setAttribute('aria-expanded', 'false');
+				hamburgerMenu.classList.remove('is-active');
+				headerIcons.forEach(icon => {
+					icon.classList.remove('is-active');
+				});
+			});
 		});
 	}
 </script>
