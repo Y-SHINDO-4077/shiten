@@ -3,12 +3,23 @@ import vercel from '@astrojs/vercel/serverless';
 
 import sitemap from '@astrojs/sitemap';
 
+import swup from '@swup/astro';
+
 import relativeLinks from 'astro-relative-links';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
-	integrations: [sitemap(), relativeLinks()],
+	integrations: [
+		sitemap(),
+		relativeLinks(),
+		swup({
+			theme: false,
+			smoothScrolling: false,
+			updateBodyClass: true,
+			reloadScripts: false,
+		}),
+	],
 	vite: {
 		server: {
 			fs: {

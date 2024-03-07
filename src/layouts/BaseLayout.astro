@@ -5,11 +5,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageTop from '../assets/images/PAGETOP.svg';
+import Swup from 'swup';
 
 interface Props {
 	title: string;
 	description: string;
 }
+
 const { title, description } = Astro.props;
 ---
 
@@ -54,7 +56,7 @@ const { title, description } = Astro.props;
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 	</head>
-	<body>
+	<body class="transition-main" id="swup">
 		<script>
 			window.fbAsyncInit = function () {
 				FB.init({
@@ -88,8 +90,9 @@ const { title, description } = Astro.props;
 			</a>
 		</div>
 		<Footer />
-
+		<div class="overlay transition-overlay"></div>
 		<script>
+			import Swup from 'swup';
 			//アンカースクロールアニメーション
 			const gap = 100;
 			const anchorElements = document.querySelectorAll('a[href^="#"]');
@@ -121,6 +124,50 @@ const { title, description } = Astro.props;
 					}
 				});
 			}
+
+			//swup
+			const swup = new Swup({
+				containers: ['#swup'],
+			});
 		</script>
+		<style>
+			html.is-changing .transition-main {
+				transition: transform 400ms ease-in-out;
+			}
+
+			html.is-animating.is-leaving .transition-main {
+				transform: translateY(calc(1 * 5vh * var(--overlay-direction, 1)));
+			}
+
+			html.is-animating.is-rendering .transition-main {
+				transform: translateY(calc(-1 * 5vh * var(--overlay-direction, 1)));
+			}
+
+			.transition-overlay {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 999;
+				pointer-events: none;
+				background-color: #e7ef61;
+				opacity: 0;
+				transform: translate3d(0, calc(-1 * 100% * var(--overlay-direction, 1)), 0);
+			}
+
+			html.is-changing .transition-overlay {
+				opacity: 1;
+				transition: transform 400ms ease-in-out;
+			}
+
+			html.is-animating .transition-overlay {
+				transform: translate3d(0, 0, 0);
+			}
+
+			html.is-rendering .transition-overlay {
+				transform: translate3d(0, calc(var(--overlay-direction, 1) * 100%), 0);
+			}
+		</style>
 	</body>
 </html>
