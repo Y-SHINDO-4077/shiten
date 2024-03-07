@@ -57,6 +57,7 @@
 	font-size: 36px;
 	font-weight: 700;
 	line-height: 1;
+	letter-spacing: -0.8em;
 	background-color: #e7ef61;
 
 	@media screen and (max-width: 1024px) {
@@ -80,7 +81,6 @@
 	.p-hamburger__menu {
 		margin-top: 40px;
 		line-height: 1;
-		letter-spacing: -0.8em;
 		writing-mode: vertical-rl;
 		text-orientation: upright;
 
@@ -271,4 +271,10 @@
 			height: 4vw;
 		}
 	}
+}
+
+::-webkit-full-page-media,
+:future,
+:root .p-hamburger {
+	letter-spacing: -0.2rem;
 }
