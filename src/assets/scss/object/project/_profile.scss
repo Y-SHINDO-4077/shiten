@@ -16,6 +16,13 @@
 		}
 	}
 
+	.p-profile__img {
+		img {
+			width: 100%;
+			border-radius: 50%;
+		}
+	}
+
 	.p-profile__wrap {
 		gap: 24px;
 	}
