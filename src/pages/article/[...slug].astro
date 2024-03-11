@@ -87,7 +87,7 @@ let Allposts = await Allresponse.json();
 			{
 				Allposts.map(p => (
 					<>
-						<li class="i-grid__item">
+						<li class="l-grid__item">
 							<Card
 								title={p.title.rendered}
 								url={`/article/${p.slug}`}

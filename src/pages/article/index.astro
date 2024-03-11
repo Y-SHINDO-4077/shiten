@@ -24,7 +24,7 @@ let posts = await response.json();
 				{
 					posts.map(post => (
 						<>
-							<li class="i-grid__item">
+							<li class="l-grid__item">
 								<Card
 									title={post.title.rendered}
 									url={`/article/${post.slug}`}
