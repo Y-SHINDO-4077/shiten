@@ -176,7 +176,7 @@
 		石井公二
 		<span class="p-card__compellation">さん</span>
 	</h3>
-	※本稿は2023年11月5日開催「やっとかめ文化祭 まちなか寺子屋　名古屋のまちの観察学　〜金シャチvs片手袋」の講演の様子をもとに記載しています。 片手袋研究とは 片手袋とは 片手袋とは、「手袋」の片一方のこと。街中で 
+	※本稿は2023年11月5日開催「やっとかめ文化祭DOORS まちなか寺子屋　名古屋のまちの観察学　〜金シャチvs片手袋」の講演の様子をもとに記載しています。（https://yattokame.jp/2023/tera 
 	<time datetime="2023-11-05T13:34:36.000Z">
 	2023.11.05
 </time>
@@ -219,16 +219,17 @@
 
 		<script type="module">
 			//アンカースクロールアニメーション
-			const gap = 100;
+			const gap = 1000;
+			const headerHeight = document.querySelector('header').offsetHeight;
 			const anchorElements = document.querySelectorAll('a[href^="#"]');
 			if (anchorElements) {
 				anchorElements.forEach(anchorElement => {
 					anchorElement.addEventListener('click', e => {
 						e.preventDefault();
 						const targetId = anchorElement.getAttribute('href').replace('#', '');
-						const target = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
+						const target = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset - headerHeight;
 						window.scrollTo({
-							top: target - gap,
+							top: target - gap - headerHeight,
 							behavior: 'smooth',
 						});
 					});
