@@ -95,16 +95,17 @@ const { title, description } = Astro.props;
 
 		<script type="module">
 			//アンカースクロールアニメーション
-			const gap = 100;
+			const gap = 1000;
+			const headerHeight = document.querySelector('header').offsetHeight;
 			const anchorElements = document.querySelectorAll('a[href^="#"]');
 			if (anchorElements) {
 				anchorElements.forEach(anchorElement => {
 					anchorElement.addEventListener('click', e => {
 						e.preventDefault();
 						const targetId = anchorElement.getAttribute('href').replace('#', '');
-						const target = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset;
+						const target = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset - headerHeight;
 						window.scrollTo({
-							top: target - gap,
+							top: target - gap - headerHeight,
 							behavior: 'smooth',
 						});
 					});
