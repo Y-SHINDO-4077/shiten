@@ -9,6 +9,14 @@
 		grid-template-columns: repeat(1, 1fr);
 		grid-gap: 8vh;
 	}
+
+	&.l-grid--half {
+		grid-template-columns: repeat(2, 1fr);
+
+		@media screen and (max-width: 768px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
 }
 
 .l-grid__item {
