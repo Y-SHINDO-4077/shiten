@@ -45,7 +45,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 80px;
-	height: 100svh;
+	height: 100vh;
 	font-family: $en-font;
 	font-size: 36px;
 	font-weight: 700;
@@ -55,6 +55,7 @@
 
 	@media screen and (max-width: 1024px) {
 		width: 60px;
+		height: 100svh;
 	}
 
 	@media screen and (max-width: 768px) {
