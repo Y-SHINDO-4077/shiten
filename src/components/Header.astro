@@ -19,32 +19,28 @@ import InfoIcon from '../assets/images/circle-info-solid.svg';
 			<p class="p-header__subtitle">いままで知らなかった、まちの視点</p>
 		</a>
 	</h1>
-	<button class="p-hamburger js-hamburgerButton" aria-controls="globalNav" aria-expanded="false">
-		<span class="p-hamburger__bars">
-			<span class="p-hamburger__bar p-hamburger__bar--primary"></span>
-			<span class="p-hamburger__bar p-hamburger__bar--secondary"></span>
-			<span class="p-hamburger__bar p-hamburger__bar--territary"></span>
-		</span>
-		<span class="p-hamburger__menu">MENU</span>
-	</button>
-	<nav class="p-header__navigation">
-		<Image src={MenuIcon01} alt="" class="p-header__decoration p-header__decoration--primary" />
-		<Image src={MenuIcon02} alt="" class="p-header__decoration p-header__decoration--secondary" />
-		<Image src={MenuIcon03} alt="" class="p-header__decoration p-header__decoration--territery" />
-		<Image src={MenuIcon04} alt="" class="p-header__decoration p-header__decoration--quaternary" />
-		<Image src={MenuIcon05} alt="" class="p-header__decoration p-header__decoration--quinary" />
-		<Image src={MenuIcon06} alt="" class="p-header__decoration p-header__decoration--senary" />
-		<ul class="p-header__navigation-list l-section-inner">
-			<li class="p-header__navigation-item"><a href="/">HOME<Image src={HouseIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
-			<li class="p-header__navigation-item"><a href="/article">視点の専門家に聞く<Image src={EarIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
-			<li class="p-header__navigation-item"><a href="/about">SHITENとは<Image src={InfoIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
-		</ul>
-		<ul class="p-header__navigation-list p-header__navigation-list--secondary l-section-inner l-flex">
-			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="">利用規約</a></li>
-			<li class="p-header__navigation-item p-header__navigation-item--last"><a href="">プライバシーポリシー</a></li>
-		</ul>
-	</nav>
 </header>
+<button class="p-hamburger js-hamburgerButton" aria-controls="globalNav" aria-expanded="false">
+	<span class="p-hamburger__bars">
+		<span class="p-hamburger__bar p-hamburger__bar--primary"></span>
+		<span class="p-hamburger__bar p-hamburger__bar--secondary"></span>
+		<span class="p-hamburger__bar p-hamburger__bar--territary"></span>
+	</span>
+	<span class="p-hamburger__menu">MENU</span>
+</button>
+<nav class="p-header__navigation">
+	<Image src={MenuIcon01} alt="" class="p-header__decoration p-header__decoration--primary" />
+	<Image src={MenuIcon02} alt="" class="p-header__decoration p-header__decoration--secondary" />
+	<Image src={MenuIcon03} alt="" class="p-header__decoration p-header__decoration--territery" />
+	<Image src={MenuIcon04} alt="" class="p-header__decoration p-header__decoration--quaternary" />
+	<Image src={MenuIcon05} alt="" class="p-header__decoration p-header__decoration--quinary" />
+	<Image src={MenuIcon06} alt="" class="p-header__decoration p-header__decoration--senary" />
+	<ul class="p-header__navigation-list l-section-inner">
+		<li class="p-header__navigation-item"><a href="/">HOME<Image src={HouseIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
+		<li class="p-header__navigation-item"><a href="/article">視点の専門家に聞く<Image src={EarIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
+		<li class="p-header__navigation-item"><a href="/about">SHITENとは<Image src={InfoIcon} alt="" class="p-header__navigation-item-icon" /></a></li>
+	</ul>
+</nav>
 
 <script type="module">
 	const hamburgerButton = document.querySelector('.js-hamburgerButton');
