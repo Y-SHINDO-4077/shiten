@@ -447,8 +447,10 @@ let Allposts = await Allresponse.json();
 	}
 
 	.p-article-detail {
-		width: 100%;
-		word-wrap: break-word;
+		@media screen and (max-width: 1024px) {
+			width: 100%;
+			word-wrap: break-word;
+		}
 
 		p {
 			line-height: 2;
