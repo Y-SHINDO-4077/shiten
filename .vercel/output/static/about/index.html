@@ -269,22 +269,24 @@
 
 		<script type="module">
 			//アンカースクロールアニメーション
-			const gap = 1000;
 			const headerHeight = document.querySelector('header').offsetHeight;
-			const anchorElements = document.querySelectorAll('a[href^="#"]');
-			if (anchorElements) {
-				anchorElements.forEach(anchorElement => {
-					anchorElement.addEventListener('click', e => {
-						e.preventDefault();
-						const targetId = anchorElement.getAttribute('href').replace('#', '');
-						const target = document.getElementById(targetId).getBoundingClientRect().top + window.pageYOffset - headerHeight;
-						window.scrollTo({
-							top: target - gap - headerHeight,
-							behavior: 'smooth',
-						});
+
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+
+					const href = anchor.getAttribute('href');
+
+					const target = document.getElementById(href.replace('#', ''));
+
+					const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+					window.scrollTo({
+						top: targetPosition,
+						behavior: 'smooth',
 					});
 				});
-			}
+			});
 
 			//ページトップボタン
 			const pagetop = document.querySelector('.c-pagetop');
