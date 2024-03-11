@@ -9,7 +9,7 @@ import relativeLinks from 'astro-relative-links';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://shiten-murex.vercel.app/',
 	integrations: [
 		sitemap(),
 		relativeLinks(),
