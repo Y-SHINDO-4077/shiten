@@ -18,6 +18,7 @@
 @use 'object/component/_paragraph.scss';
 @use 'object/component/_tooltip.scss';
 @use 'object/component/_pagetop.scss';
+@use 'object/component/_top-icon.scss';
 
 /* object/project */
 @use 'object/project/_about-swiper.scss';
@@ -28,6 +29,9 @@
 @use 'object/project/_map.scss';
 @use 'object/project/_profile.scss';
 @use 'object/project/_share.scss';
+@use 'object/project/_top-articles.scss';
+@use 'object/project/_top-info.scss';
+@use 'object/project/_top-map.scss';
 
 /* object/utility */
 @use 'object/utility/_spacing.scss';

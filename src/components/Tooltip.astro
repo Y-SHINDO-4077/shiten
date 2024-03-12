@@ -9,20 +9,23 @@ import Map from '../assets/images/map-point-wave.svg';
 const { url, title, className } = Astro.props;
 ---
 
-<button class=`c-tooltop js-tooltip ${className}` role="tooltip" aria-labelledby="tooltip" title={title} aria-label="tooltip">
-	<span class="c-tooltip__icon">
-		<img src={Map.src} alt="" />
-	</span>
-	<a href={url} class="c-tooltip__content js-tooltip__content" title={title} area-label="tooltip-link" area-labelledby={`tooltip-${url}_link`} id={`tooltip-${url}`}>
-		<span id={`tooltip-${url}_link`}>{title}</span>
+<div class=`c-tooltop ${className}`>
+	<button class=`c-tooltop__button js-tooltip ` title={title} aria-label="tooltip">
+		<span class="c-tooltip__icon" aria-labelledby="tooltip" aria-describedby="tooltip" tabindex="0">
+			<img src={Map.src} alt="" />
+		</span>
+	</button>
+	<a href={url} class="c-tooltip__content js-tooltip__content" title={title} area-labelledby={`tooltip-${url}_link`} id={`tooltip-${url}`}>
+		<span id={`tooltip-${url}_link`} role="tooltip">{title}</span>
 	</a>
-</button>
+</div>
 
 <script type="module">
 	const tooltip = document.querySelectorAll('.js-tooltip');
 	tooltip.forEach(tip => {
 		tip.addEventListener('click', () => {
 			tip.classList.toggle('is-active');
+			tip.nextElementSibling.classList.toggle('is-active');
 		});
 	});
 </script>

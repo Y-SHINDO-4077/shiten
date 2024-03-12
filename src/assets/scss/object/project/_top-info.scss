@@ -1,0 +1,18 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-top-info {
+	position: relative;
+}
+
+.p-top-info__icon {
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+
+.p-top-info__icon--secondary {
+	top: inherit;
+	right: 0;
+	bottom: -10%;
+	left: inherit;
+}

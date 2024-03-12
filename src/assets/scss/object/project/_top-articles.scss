@@ -1,0 +1,26 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-top-articles {
+	position: relative;
+}
+
+.p-top-articles__icon {
+	position: absolute;
+	top: 90%;
+	left: 0;
+
+	@media screen and (max-width: 768px) {
+		top: 100%;
+	}
+}
+
+.p-top-articles__icon--secondary {
+	top: inherit;
+	right: 0;
+	bottom: -30%;
+	left: inherit;
+
+	@media screen and (max-width: 768px) {
+		bottom: -5%;
+	}
+}

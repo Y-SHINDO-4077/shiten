@@ -1,0 +1,18 @@
+@use '../../foundation/_base.scss' as *;
+
+.p-top-map {
+	position: relative;
+}
+
+.p-top-map__icon {
+	position: absolute;
+	bottom: 0%;
+	left: 0;
+}
+
+.p-top-map__icon--secondary {
+	top: 10%;
+	right: 0;
+	bottom: inherit;
+	left: inherit;
+}
