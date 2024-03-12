@@ -1,0 +1,8 @@
+@use '../../foundation/_base.scss' as *;
+
+.c-top-icon {
+	@media screen and (max-width: 768px) {
+		width: 40px;
+		height: 40px;
+	}
+}
