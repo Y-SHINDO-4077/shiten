@@ -133,6 +133,16 @@
 			});
 		});
 	}
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape') {
+			hamburgerButton.classList.remove('is-active');
+			hamburgerButton.setAttribute('aria-expanded', 'false');
+			hamburgerMenu.classList.remove('is-active');
+			headerIcons.forEach(icon => {
+				icon.classList.remove('is-active');
+			});
+		}
+	});
 </script>
 		<main class="l-main" data-astro-cid-37fxchfa>
 			

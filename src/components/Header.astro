@@ -97,4 +97,14 @@ import InfoIcon from '../assets/images/circle-info-solid.svg';
 			});
 		});
 	}
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape') {
+			hamburgerButton.classList.remove('is-active');
+			hamburgerButton.setAttribute('aria-expanded', 'false');
+			hamburgerMenu.classList.remove('is-active');
+			headerIcons.forEach(icon => {
+				icon.classList.remove('is-active');
+			});
+		}
+	});
 </script>
