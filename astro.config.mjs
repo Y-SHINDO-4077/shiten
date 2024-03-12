@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel/serverless';
 
-// import sitemap from '@astrojs/sitemap';
+import sitemap from '@astrojs/sitemap';
 
 import swup from '@swup/astro';
 
@@ -11,7 +11,7 @@ import relativeLinks from 'astro-relative-links';
 export default defineConfig({
 	site: 'https://shiten-murex.vercel.app/',
 	integrations: [
-		//sitemap(),
+		sitemap(),
 		relativeLinks(),
 		swup({
 			smoothScrolling: false,
