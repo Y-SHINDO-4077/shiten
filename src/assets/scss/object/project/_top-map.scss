@@ -15,4 +15,8 @@
 	right: 0;
 	bottom: inherit;
 	left: inherit;
+
+	@media screen and (max-width: 768px) {
+		top: 20%;
+	}
 }
