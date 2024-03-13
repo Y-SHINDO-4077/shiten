@@ -10,15 +10,32 @@ import MenuIcon06 from '../assets/images/menu_icon_06.svg';
 import HouseIcon from '../assets/images/house-solid.svg';
 import EarIcon from '../assets/images/ear-listen-solid.svg';
 import InfoIcon from '../assets/images/circle-info-solid.svg';
+
+const { pageName } = Astro.props;
 ---
 
 <header class="l-header p-header">
-	<h1 class="p-header__title">
-		<a href="/">
-			<Image src={Logo} alt="SHITEN" />
-			<p class="p-header__subtitle">いままで知らなかった、まちの視点</p>
-		</a>
-	</h1>
+	{
+		pageName === 'home' ? (
+			<>
+				<h1 class="p-header__title">
+					<a href="/">
+						<Image src={Logo} alt="SHITEN" />
+						<p class="p-header__subtitle">いままで知らなかった、まちの視点</p>
+					</a>
+				</h1>
+			</>
+		) : (
+			<>
+				<div class="p-header__title">
+					<a href="/">
+						<Image src={Logo} alt="SHITEN" />
+						<p class="p-header__subtitle">いままで知らなかった、まちの視点</p>
+					</a>
+				</div>
+			</>
+		)
+	}
 </header>
 <button class="p-hamburger js-hamburgerButton" aria-controls="globalNav" aria-expanded="false">
 	<span class="p-hamburger__bars">

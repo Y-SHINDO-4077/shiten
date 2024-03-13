@@ -10,9 +10,10 @@ import Swup from 'swup';
 interface Props {
 	title: string;
 	description: string;
+	pageName: 'home' | 'about' | 'articles' | 'articles_details';
 }
 
-const { title, description } = Astro.props;
+const { title, description, pageName } = Astro.props;
 ---
 
 <!doctype html>
@@ -82,7 +83,7 @@ const { title, description } = Astro.props;
 			})(document, 'script', 'facebook-jssdk');
 		</script>
 		<div id="pagetop"></div>
-		<Header title="SHITEN" />
+		<Header title="SHITEN" pageName={pageName} />
 		<main class="l-main">
 			<slot />
 		</main>

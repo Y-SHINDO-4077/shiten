@@ -47,7 +47,7 @@ if (!Allresponse.ok) {
 let Allposts = await Allresponse.json();
 ---
 
-<BaseLayout title={`${posttitle} | SHITEN`} description={`${post.excerpt.rendered.slice(3, 96)}...`}>
+<BaseLayout title={`${posttitle} | SHITEN`} description={`${post.excerpt.rendered.slice(3, 96)}...`} pageName="articles_details">
 	<ContentWrapper small>
 		<aside class="p-aside">
 			<div class="p-aside__wrap">
