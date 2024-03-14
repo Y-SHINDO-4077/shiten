@@ -17,7 +17,7 @@
 		margin-left: auto;
 
 		@media screen and (max-width: 1024px) {
-			width: min(calc(100% - 100px), 88%);
+			width: min(calc(100vw - 100px), 88%);
 			max-width: inherit;
 			margin-right: min(50px, 12%);
 		}
