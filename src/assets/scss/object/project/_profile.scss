@@ -29,9 +29,11 @@
 
 	.p-profile__left {
 		flex-basis: 240px;
+		flex-shrink: 0;
 
 		img {
 			width: 100%;
+			border-radius: 50%;
 		}
 	}
 
