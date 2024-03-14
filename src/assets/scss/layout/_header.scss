@@ -54,11 +54,6 @@
 	background-color: #e7ef61;
 
 	@media screen and (max-width: 1024px) {
-		width: 60px;
-		height: 100svh;
-	}
-
-	@media screen and (max-width: 768px) {
 		display: flex;
 		flex-direction: row;
 		gap: 8px;
@@ -78,7 +73,7 @@
 		writing-mode: vertical-rl;
 		text-orientation: upright;
 
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: 1024px) {
 			padding-top: 6px;
 			margin-top: 0;
 			letter-spacing: 0;
@@ -142,7 +137,7 @@
 		opacity 0.3s ease-out;
 
 	@media screen and (max-width: 1024px) {
-		width: calc(100vw - 40px);
+		width: 100%;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -166,7 +161,7 @@
 			opacity: 1;
 		}
 
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: 1024px) {
 			width: 10vw;
 			height: 10vw;
 		}
@@ -223,7 +218,7 @@
 		&.p-header__navigation-list--secondary {
 			flex-direction: row;
 
-			@media screen and (max-width: 768px) {
+			@media screen and (max-width: 1024x) {
 				flex-direction: column;
 				gap: 40px;
 			}
