@@ -11,7 +11,7 @@ const { url, title, className } = Astro.props;
 
 <div class=`c-tooltop ${className}`>
 	<button class=`c-tooltop__button js-tooltip ` title={title} aria-label="tooltip">
-		<span class="c-tooltip__icon" aria-labelledby="tooltip" aria-describedby="tooltip" tabindex="0">
+		<span class="c-tooltip__icon" tabindex="0">
 			<img src={Map.src} alt="" />
 		</span>
 	</button>
